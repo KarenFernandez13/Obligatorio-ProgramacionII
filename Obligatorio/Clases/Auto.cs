@@ -10,7 +10,17 @@ namespace Obligatorio
     {
         private int numeroPasajeros;
         public Auto():base() { }
+        
+        public Auto(string matricula, string marca, string modelo, int año, string color, int kilometros, 
+            int precioVenta, int precioAlquiler, int numeroPasajeros):base(matricula, marca, modelo, año, 
+                color, kilometros, precioVenta, precioAlquiler)
+        {
+            this.numeroPasajeros = numeroPasajeros;             
+        }
+
+
         public int GetNumeroPasajeros() => numeroPasajeros;
         public void SetNumeroPasajeros(int numeroPasajeros) => this.numeroPasajeros = numeroPasajeros;
     }
+    
 }

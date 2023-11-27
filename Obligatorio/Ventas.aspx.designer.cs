@@ -11,61 +11,52 @@ namespace Obligatorio
 {
 
 
-    public partial class SiteMaster
+    public partial class Ventas
     {
 
         /// <summary>
-        /// Control lnkClientes.
+        /// Control lstClientes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkClientes;
+        protected global::System.Web.UI.WebControls.ListBox lstClientes;
 
         /// <summary>
-        /// Control lnkUsuarios.
+        /// Control cboVehiculos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkUsuarios;
+        protected global::System.Web.UI.WebControls.DropDownList cboVehiculos;
 
         /// <summary>
-        /// Control lnkVehiculos.
+        /// Control btnVender.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkVehiculos;
+        protected global::System.Web.UI.WebControls.Button btnVender;
 
         /// <summary>
-        /// Control lnkAlquileres.
+        /// Control lblPrecioSimbolo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkAlquileres;
+        protected global::System.Web.UI.WebControls.Label lblPrecioSimbolo;
 
         /// <summary>
-        /// Control lnkVentas.
+        /// Control lblPrecio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkVentas;
-
-        /// <summary>
-        /// Control MainContent.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.Label lblPrecio;
     }
 }

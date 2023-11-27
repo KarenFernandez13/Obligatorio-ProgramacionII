@@ -10,6 +10,8 @@ namespace Obligatorio
     {
         private int capacidadCarga;
 
-        public Camion() { }
+        public Camion():base() { }
+        public int GetCapacidadCarga() => capacidadCarga;
+        public void SetCapacidadCarga(int capacidadCarga) => this.capacidadCarga = capacidadCarga;
     }
 }

@@ -10,6 +10,8 @@ namespace Obligatorio
     {
         private int cilindrada;
 
-        public Moto() { }
+        public Moto():base() { }
+        public int GetCilindrada() => cilindrada;
+        public void SetCilindrada(int cilindrada) => this.cilindrada = cilindrada;
     }
 }

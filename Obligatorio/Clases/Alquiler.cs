@@ -14,7 +14,7 @@ namespace Obligatorio
         public string Matricula { get; set; }   
         public string NombreUsuario { get; set; }
         public int Precio { get; set; }
-        public bool AutoDevuelto {  get; set; }
+        public bool Devuelto {  get; set; }
 
 
         public Alquiler() { }  
@@ -26,7 +26,7 @@ namespace Obligatorio
             this.Matricula = Matricula;
             this.NombreUsuario = NombreUsuario;
             this.Precio = Precio;
-            this.AutoDevuelto = AutoDevuelto;            
+            this.Devuelto = Devuelto;            
         }
 
 
@@ -35,8 +35,8 @@ namespace Obligatorio
         public string GetMatricula() => Matricula;
         public string GetCedula() => Cedula;
         public string GetNombreUsuario() => NombreUsuario;
-        public int GetPrecio() => Precio;   
-        public bool GetAutoDevuelto() => AutoDevuelto;
+        public int GetPrecio() => Precio;
+        public bool GetDevuelto() => Devuelto;
 
         public void SetCantidadDias(int cantidadDias) { this.CantidadDias = cantidadDias; }
         public void SetFechaRetiro(DateTime FechaRetiro) { this.FechaRetiro = FechaRetiro; }
@@ -44,7 +44,7 @@ namespace Obligatorio
         public void SetCedula(string Cedula) {  this.Cedula = Cedula;}
         public void SetNombreUsuario(string NombreUsuario) { this.NombreUsuario = NombreUsuario;}   
         public void SetPrecio(int Precio) { this.Precio = Precio; } 
-        public void SetAutoDevuelto(bool Devuelto) { this.AutoDevuelto = Devuelto;} 
+        public void SetDevuelto(bool Devuelto) { this.Devuelto = Devuelto;} 
 
 
 

@@ -20,6 +20,11 @@
         </div>
     </div>
     <br />
+    <div class="row">
+        <div class="col-lg-2">
+            <asp:Label ID="lblMessage2" runat="server" Visible="true" ForeColor="Red"></asp:Label>
+        </div>
+    </div>
     <div class=" row">
         <div class="col-lg-6">
             Vehiculos:           
@@ -52,8 +57,9 @@
             <asp:TextBox ID="txtDias" runat="server" CssClass="form-control" placeholder="Cantidad de Dias" OnTextChanged="txtDias_TextChanged"></asp:TextBox>
         </div>
     </div>
+    
     <div class="row">
-        <asp:Label ID="lblDias" runat="server" Visible="false" ForeColor="Red"></asp:Label>
+        <asp:Label ID="lblMessage1" runat="server" Visible="true" ForeColor="Red"></asp:Label>
     </div>
     <br />
     <div class=" row">
@@ -64,7 +70,7 @@
     <br />
     <div class="row">
         <div class="col-lg-6">
-            <asp:Label ID="lblPrecio" runat="server" Visible="true" CssClass="form-control" ForeColor="Red"></asp:Label>
+            <asp:Label ID="lblPrecio" runat="server" Visible="true" ForeColor="Red"></asp:Label>
         </div>
     </div>
     <br />
@@ -74,4 +80,9 @@
             <asp:Button ID="btnAlquilar" runat="server" CssClass="btn btn-primary" Text="Confirmar Alquiler" OnClick="btnAlquilar_Click" />
         </div>
     </div>
+    <div class="row">
+    <div class="col-lg-6">
+        <asp:Label ID="lblMessage" runat="server" Visible="true" ForeColor="Red"></asp:Label>
+    </div>
+</div>
 </asp:Content>

@@ -24,6 +24,15 @@ namespace Obligatorio
         protected global::System.Web.UI.WebControls.ListBox lstClientes;
 
         /// <summary>
+        /// Control lblMessage2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage2;
+
+        /// <summary>
         /// Control cboVehiculos.
         /// </summary>
         /// <remarks>
@@ -69,13 +78,13 @@ namespace Obligatorio
         protected global::System.Web.UI.WebControls.TextBox txtDias;
 
         /// <summary>
-        /// Control lblDias.
+        /// Control lblMessage1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDias;
+        protected global::System.Web.UI.WebControls.Label lblMessage1;
 
         /// <summary>
         /// Control btnCalcular.
@@ -103,5 +112,14 @@ namespace Obligatorio
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAlquilar;
+
+        /// <summary>
+        /// Control lblMessage.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
     }
 }

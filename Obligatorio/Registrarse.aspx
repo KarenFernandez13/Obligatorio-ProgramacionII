@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Registrarse.aspx.cs" Inherits="Obligatorio.Registrarse" %>
+﻿<%@ Page Title="Registro" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Registrarse.aspx.cs" Inherits="Obligatorio.Registrarse" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
@@ -44,7 +44,7 @@
         </div>
     </div>
 
-
+    
     <br />
     <div class=" row">
         <div class="col-lg-8">
@@ -57,6 +57,7 @@
     <div class="row">
         <div class="col-lg-5">
             <asp:Label ID="lblError" runat="server" Visible="false" ForeColor="Red">Ya existe un usuario registrado con ese documento!</asp:Label>
+            <asp:Label ID="lblConfirmacion" runat="server" Visible="false" ForeColor="Blue">Se ha registrado correctamente!</asp:Label>
         </div>
     </div>
 

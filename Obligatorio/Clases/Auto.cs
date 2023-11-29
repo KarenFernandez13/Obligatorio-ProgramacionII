@@ -12,8 +12,8 @@ namespace Obligatorio
         public Auto():base() { }
         
         public Auto(string matricula, string marca, string modelo, int año, string color, int kilometros, 
-            int precioVenta, int precioAlquiler, int numeroPasajeros):base(matricula, marca, modelo, año, 
-                color, kilometros, precioVenta, precioAlquiler)
+            int precioVenta, int precioAlquiler, int numeroPasajeros, bool Activo):base(matricula, marca, modelo, año, 
+                color, kilometros, precioVenta, precioAlquiler, Activo)
         {
             this.numeroPasajeros = numeroPasajeros;             
         }

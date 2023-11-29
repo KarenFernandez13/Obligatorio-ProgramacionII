@@ -59,7 +59,7 @@ namespace Obligatorio
         public void SetDocumento(string documento) => this.Documento = documento; 
         public void SetNombre(string nombre) => this.Nombre = nombre; 
         public void SetApellido(string apellido) => this.Apellido = apellido;        
-        public void SetTelefono(string tipo) => this.Tipo = tipo;
+        public void SetTipo(string tipo) => this.Tipo = tipo;
         public void SetContraseña(string contraseña) => this.Contraseña = contraseña;
 
         public void SetVerCliente(bool VerCliente)

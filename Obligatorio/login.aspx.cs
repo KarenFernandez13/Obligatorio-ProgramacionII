@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 namespace Obligatorio
 {
     public partial class login : System.Web.UI.Page
-    { 
+    {
         protected void Page_Load(object sender, EventArgs e)
         {
             Master.FindControl("lnkUsuarios").Visible = false;
@@ -27,22 +27,18 @@ namespace Obligatorio
         {
             string documento = txtDocumento.Text;
             string contraseña = txtContraseña.Text;
-            bool existeUsuario = false;
+
             foreach (var usuario in BaseDeDatos.ListaUsuarios)
             {
                 if (documento == usuario.GetDocumento() && contraseña == usuario.GetContraseña())
                 {
-                    existeUsuario = true;
+                    BaseDeDatos.GuardarUsuarioLogueado(usuario);
+                    Response.Redirect("Default.aspx");
                 }
             }
-            if (existeUsuario == true)
-            {
-                Response.Redirect("Default.aspx"); 
-            }
-            else
-            {
-                lblMessage.Text = ("Datos incorrectos. Por favor, inténtalo de nuevo.");
-            }
+
+            lblMessage.Text = ("Datos incorrectos. Por favor, inténtalo de nuevo.");
+
         }
 
         protected void btnRegistro_Click(object sender, EventArgs e)

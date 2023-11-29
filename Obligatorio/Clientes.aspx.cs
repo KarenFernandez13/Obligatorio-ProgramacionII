@@ -17,7 +17,7 @@ namespace Obligatorio
         protected void gvClientes_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             this.gvClientes.EditIndex = -1;
-            this.gvClientes.DataSource = BaseDeDatos.ListaVehiculos;
+            this.gvClientes.DataSource = BaseDeDatos.ListaClientes;
             this.gvClientes.DataBind();
         }
 

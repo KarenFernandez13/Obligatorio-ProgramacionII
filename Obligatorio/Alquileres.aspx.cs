@@ -19,7 +19,7 @@ namespace Obligatorio
                 lstClientes.DataTextField = "Documento";
                 lstClientes.DataBind();
 
-                cboVehiculos.DataSource = BaseDeDatos.ListaVehiculos;
+                cboVehiculos.DataSource = BaseDeDatos.VehiculosActivos();
                 cboVehiculos.DataTextField = "Matricula";
                 cboVehiculos.DataBind();
 
@@ -61,31 +61,96 @@ namespace Obligatorio
 
         protected void txtDias_TextChanged(object sender, EventArgs e)
         {
-            while (txtDias.Text == null || txtDias.Text == "0")
+
+            if (String.IsNullOrEmpty(txtDias.Text) || txtDias.Text == "0")
             {
-                lblDias.Text = ("Datos incorrectos. Por favor, inténtalo de nuevo.");
+                lblMessage1.Text = "Debe ingresar un valor mayor a 0";
                 txtDias.Text = String.Empty;
+            }
+            else
+            {
+                lblMessage1.Text = String.Empty;
             }
         }
 
         protected void btnCalcular_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(txtDias.ToString()))
+            int precioDia = 0;
+            if (!String.IsNullOrEmpty(txtDias.Text) || txtDias.Text != "0")
             {
-                int precioDia = Int32.Parse(lblPrecioDia.Text);
-                int DiasIng = Int32.Parse(txtDias.Text);
-                int Resultado = precioDia * DiasIng;
+                int cantDias = 0;
+                Int32.TryParse(lblPrecioDia.Text, out precioDia);
+                Int32.TryParse(txtDias.Text, out cantDias);
+                int Resultado = precioDia * cantDias;
                 lblPrecio.Text = "$" + Resultado.ToString();
+            }
+            else
+            {
+                lblMessage1.Text = "Debe ingresar un valor mayor a 0";
+                txtDias.Text = String.Empty;
             }
         }
 
         protected void btnAlquilar_Click(object sender, EventArgs e)
         {
-            string Cedula = lstClientes.SelectedItem.Value;
-            string Matricula = cboVehiculos.SelectedValue;
+            if (lstClientes.SelectedIndex == -1)
+            {
+                lblMessage2.Text = "Debe seleccionar un cliente.";
+            }
+            else
+            {
+                lblMessage2.Text = String.Empty;
+                string Cedula = lstClientes.SelectedItem.Value;
+                string Matricula = cboVehiculos.SelectedValue;
+                DateTime fechaAlq;
+                DateTime.TryParse(txtFechaRetiro.Text, out fechaAlq);
+                int precio = 0;
+                Int32.TryParse(lblPrecio.Text, out precio);
+                int cantDias = 0;
+                Int32.TryParse(txtDias.Text, out cantDias);
+                Alquiler NuevoAlquiler = new Alquiler();
+                NuevoAlquiler.SetCantidadDias(cantDias);
+                NuevoAlquiler.SetCedula(Cedula);
+                NuevoAlquiler.SetMatricula(Matricula);
+                NuevoAlquiler.SetPrecio(precio);
+                NuevoAlquiler.SetNombreUsuario(BaseDeDatos.usuarioLogueado.Nombre);
+                NuevoAlquiler.SetFechaRetiro(fechaAlq);
+                NuevoAlquiler.SetDevuelto(false);
+                BaseDeDatos.ListaAlquileres.Add(NuevoAlquiler);
+
+                foreach (var vehiculo in BaseDeDatos.ListaVehiculos)
+                {
+                    if (vehiculo.Matricula == Matricula)
+                    {
+                        vehiculo.SetActivo(false);
+                        break;
+                    }
+                }
+
+                cboVehiculos.DataSource = BaseDeDatos.VehiculosActivos();
+                cboVehiculos.DataTextField = "Matricula";
+                cboVehiculos.DataBind();
+                if (BaseDeDatos.VehiculosActivos().Count == 0)
+                {
+                    lblFecha.Text = "No tenemos vehículos disponibles.";
+                }
+
+                lblMessage.Text = ("Alquiler realizado exitosamente!");
+            }
+
         }
 
-
+        protected void lstClientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstClientes.SelectedIndex == -1)
+            {
+                lblMessage2.Text = "Debe seleccionar un cliente.";
+            }
+            else
+            {
+                lblMessage2.Text = String.Empty;
+            }
+        }
 
     }
 }

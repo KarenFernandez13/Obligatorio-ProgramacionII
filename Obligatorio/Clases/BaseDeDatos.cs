@@ -39,9 +39,14 @@ namespace Obligatorio.Clases
             Vehiculo vehiculo = new Vehiculo { Marca = "Ferrari", Matricula = "MA458855", Modelo = "F40", PrecioVenta = 1000000, PrecioAlquiler = 1000, Activo= true};
             Vehiculo vehiculo2 = new Vehiculo { Marca = "Chery", Matricula = "TG945884", Modelo = "TIGO", PrecioVenta = 95600, PrecioAlquiler = 100, Activo = true };
             Vehiculo vehiculo3 = new Vehiculo { Marca = "Fiat", Matricula = "FR46665", Modelo = "UNO", PrecioVenta = 857588, PrecioAlquiler = 130, Activo = true };
+            Vehiculo vehiculo4 = new Vehiculo { Marca = "Chevrolet", Matricula = "YYU32885", Modelo = "ONIX", PrecioVenta = 80900, PrecioAlquiler = 115, Activo = false };
             ListaVehiculos.Add(vehiculo);
             ListaVehiculos.Add(vehiculo2);
             ListaVehiculos.Add(vehiculo3);
+            ListaVehiculos.Add(vehiculo4);
+
+            Venta venta = new Venta { FechaVenta = DateTime.Now, DocumentoCliente = "23648895", Matricula = "YYU32885", DocumentoEmpleado = "11111111", Precio = 80900 };
+            ListaVentas.Add(venta);
         }
 
         public static void GuardarUsuarioLogueado(Usuario usuario)

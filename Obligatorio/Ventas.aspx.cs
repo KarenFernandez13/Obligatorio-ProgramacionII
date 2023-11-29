@@ -31,7 +31,7 @@ namespace Obligatorio
             {
                 if (vehiculo.Matricula == Matricula)
                 {
-                    lblPrecio.Text = "$ " + vehiculo.PrecioVenta.ToString();
+                    lblPrecio.Text =  vehiculo.PrecioVenta.ToString();
                     lblPrecio.Visible = true;
                 }
             }
@@ -40,16 +40,13 @@ namespace Obligatorio
 
         protected void btnVender_Click(object sender, EventArgs e)
         {
-            string Cedula = lstClientes.SelectedItem.Value;
             string Matricula = cboVehiculos.SelectedValue;
-            DateTime fechaVenta;
-            DateTime.TryParse(txtFechaVenta.Text, out fechaVenta);
-            int precio = 0;
+            DateTime fechaVenta = DateTime.Now.Date;
+            int precio;
             Int32.TryParse(lblPrecio.Text, out precio);
-
             Venta nuevaVenta = new Venta();            
-            nuevaVenta.SetFechaRetiro(fechaVenta);
-            nuevaVenta.SetDocumento(lstClientes.Text);
+            nuevaVenta.SetFechaVenta(fechaVenta);
+            nuevaVenta.SetDocumentoCliente(lstClientes.Text);
             nuevaVenta.SetMatricula(cboVehiculos.Text);
             nuevaVenta.SetDocumentoEmpleado(BaseDeDatos.usuarioLogueado.Documento);
             nuevaVenta.SetPrecio(precio);
@@ -64,14 +61,18 @@ namespace Obligatorio
                 }
             }
 
+
+            lblMessage.Text = ("Venta realizada exitosamente!");
+          
             cboVehiculos.DataSource = BaseDeDatos.VehiculosActivos();
             cboVehiculos.DataTextField = "Matricula";
             cboVehiculos.DataBind();
 
-            lblMessage.Text = ("Venta realizada exitosamente!");
-
-
         }
-        
+
+        protected void btnVerVentas_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("VentasRealizadas.aspx");
+        }
     }
 }

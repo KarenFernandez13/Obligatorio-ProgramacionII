@@ -6,7 +6,7 @@
             margin-bottom: 8px;
         }
     </style>
-    
+
     <div class="row">
         <div class="col-lg-12">
             <h3>Ventas</h3>
@@ -26,32 +26,31 @@
             <asp:DropDownList ID="cboVehiculos" runat="server" OnSelectedIndexChanged="cboVehiculos_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
         </div>
     </div>
+    
     <br />
-    <div class=" row">
-    <div class="col-lg-8">
-        Fecha de venta: 
-        <asp:TextBox ID="txtFechaVenta" runat="server" TextMode="Date"></asp:TextBox>
-    </div>
-</div>
-    <br />
-     <div class="row">
-     <div class="col-lg-5">
-         <br />
-         <asp:Label ID="lblPrecio" runat="server" Visible="false" ForeColor="Red"></asp:Label>
-     </div>
- </div>
-     <br />
-    <div class=" row">
-        <div class="col-lg-8">
-            <asp:Button ID="btnVender" runat="server" CssClass="btn btn-primary" Text="Confirmar Venta" OnClick="btnVender_Click" />
+    <div class="row">
+        <div class="col-lg-5">
+            <br />
+            <asp:Label ID="lblPrecio" runat="server" Visible="false" ForeColor="Red"></asp:Label>
         </div>
     </div>
-   <br />
-    <div class="row">
-    <div class="col-lg-8">
-        <asp:Label ID="lblMessage" runat="server" Text="" ForeColor="Blue"></asp:Label>
+    <br />
+    <div class=" row">
+        <div class="col-lg-8">
+            <asp:Button ID="btnVender" runat="server" CssClass="btn btn-primary" Text="Confirmar venta" OnClick="btnVender_Click" />
+        </div>
     </div>
-</div>
+    <div class="row">
+        <div class="col-lg-8">
+            <asp:Label ID="lblMessage" runat="server" Text="" ForeColor="Blue"></asp:Label>
+        </div>
+        <br />
+        <div class=" row">
+            <div class="col-lg-8">
+                <asp:Button ID="btnVerVentas" runat="server" CssClass="btn btn-primary" Text="Ventas" OnClick="btnVerVentas_Click" />
+            </div>
+        </div>
+    </div>
 
 
 

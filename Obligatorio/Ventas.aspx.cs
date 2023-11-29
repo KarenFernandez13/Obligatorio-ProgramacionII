@@ -18,19 +18,11 @@ namespace Obligatorio
                 lstClientes.DataTextField = "Documento";
                 lstClientes.DataBind();
 
-                cboVehiculos.DataSource = BaseDeDatos.ListaVehiculos;
+                cboVehiculos.DataSource = BaseDeDatos.VehiculosActivos();
                 cboVehiculos.DataTextField = "Matricula";
                 cboVehiculos.DataBind();
             }
         }
-
-        protected void btnVender_Click(object sender, EventArgs e)
-        {
-            string Cedula = lstClientes.SelectedItem.Value;
-
-            string Matricula = cboVehiculos.SelectedValue;
-        }
-
         protected void cboVehiculos_SelectedIndexChanged(object sender, EventArgs e)
         {
             string Matricula = cboVehiculos.SelectedItem.Value;
@@ -39,12 +31,47 @@ namespace Obligatorio
             {
                 if (vehiculo.Matricula == Matricula)
                 {
-                    lblPrecio.Text = vehiculo.PrecioVenta.ToString();
+                    lblPrecio.Text = "$ " + vehiculo.PrecioVenta.ToString();
                     lblPrecio.Visible = true;
-                    lblPrecioSimbolo.Visible = true;
                 }
             }
 
         }
+
+        protected void btnVender_Click(object sender, EventArgs e)
+        {
+            string Cedula = lstClientes.SelectedItem.Value;
+            string Matricula = cboVehiculos.SelectedValue;
+            DateTime fechaVenta;
+            DateTime.TryParse(txtFechaVenta.Text, out fechaVenta);
+            int precio = 0;
+            Int32.TryParse(lblPrecio.Text, out precio);
+
+            Venta nuevaVenta = new Venta();            
+            nuevaVenta.SetFechaRetiro(fechaVenta);
+            nuevaVenta.SetDocumento(lstClientes.Text);
+            nuevaVenta.SetMatricula(cboVehiculos.Text);
+            nuevaVenta.SetDocumentoEmpleado(BaseDeDatos.usuarioLogueado.Documento);
+            nuevaVenta.SetPrecio(precio);
+            BaseDeDatos.ListaVentas.Add(nuevaVenta);
+
+            foreach (var vehiculo in BaseDeDatos.ListaVehiculos)
+            {
+                if (vehiculo.Matricula == Matricula)
+                {
+                    vehiculo.SetActivo(false);
+                    break;
+                }
+            }
+
+            cboVehiculos.DataSource = BaseDeDatos.VehiculosActivos();
+            cboVehiculos.DataTextField = "Matricula";
+            cboVehiculos.DataBind();
+
+            lblMessage.Text = ("Venta realizada exitosamente!");
+
+
+        }
+        
     }
 }

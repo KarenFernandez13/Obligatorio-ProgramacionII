@@ -15,12 +15,11 @@ namespace Obligatorio.Clases
         public int Kilometros {  get; set; }    
         public int PrecioVenta { get; set; }
         public int PrecioAlquiler {  get; set; }
-
         public bool Activo { get; set; }
         
 
         public Vehiculo() { }
-        public Vehiculo(string matricula, string marca, string modelo, int año, string color, int kilometros, int precioVenta, int precioAlquiler)
+        public Vehiculo(string matricula, string marca, string modelo, int año, string color, int kilometros, int precioVenta, int precioAlquiler, bool Activo)  
         {
             Matricula = matricula;
             Marca = marca;
@@ -30,6 +29,7 @@ namespace Obligatorio.Clases
             Kilometros = kilometros;
             PrecioVenta = precioVenta;
             PrecioAlquiler = precioAlquiler;
+            this.Activo = Activo;
         }
 
 
@@ -41,6 +41,7 @@ namespace Obligatorio.Clases
         public int GetAño() => Año;
         public int GetPrecioVenta() => PrecioVenta;
         public int GetPrecioAlquiler() => PrecioAlquiler;
+        public bool GetActivo() => Activo;
 
         public void SetMatricula(string matricula) { this.Matricula = matricula;}
         public void SetMarca(string marca) { this.Marca = marca; }
@@ -50,6 +51,7 @@ namespace Obligatorio.Clases
         public void SetAño(int año) {this.Año = año;}
         public void SetPrecioVenta(int precioVenta) { this.PrecioVenta = precioVenta;} 
         public void SetPrecioAlquiler(int precioAlquiler) { this.PrecioAlquiler = precioAlquiler;}
-            
+        public void SetActivo(bool Activo) => this.Activo = Activo;
+             
     }
 }

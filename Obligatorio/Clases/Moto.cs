@@ -12,8 +12,8 @@ namespace Obligatorio
 
         public Moto() { }
         public Moto(string matricula, string marca, string modelo, int año, string color, int kilometros,
-           int precioVenta, int precioAlquiler, int cilindrada) : base(matricula, marca, modelo, año,
-               color, kilometros, precioVenta, precioAlquiler)
+           int precioVenta, int precioAlquiler, int cilindrada, bool Activo) : base(matricula, marca, modelo, año,
+               color, kilometros, precioVenta, precioAlquiler, Activo)
         {
             this.cilindrada = cilindrada;
         }

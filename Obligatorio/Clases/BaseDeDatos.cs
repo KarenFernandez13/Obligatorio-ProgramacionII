@@ -36,9 +36,9 @@ namespace Obligatorio.Clases
             ListaClientes.Add(cliente2);
             ListaClientes.Add(cliente3);
 
-            Vehiculo vehiculo = new Vehiculo { Marca = "Ferrari", Matricula = "MA458855", Modelo = "F40", PrecioVenta = 1000000 };
-            Vehiculo vehiculo2 = new Vehiculo { Marca = "Chery", Matricula = "TG945884", Modelo = "TIGO", PrecioVenta = 95600 };
-            Vehiculo vehiculo3 = new Vehiculo { Marca = "Fiat", Matricula = "FR46665", Modelo = "UNO", PrecioVenta = 857588 };
+            Vehiculo vehiculo = new Vehiculo { Marca = "Ferrari", Matricula = "MA458855", Modelo = "F40", PrecioVenta = 1000000, PrecioAlquiler = 1000, Activo= true};
+            Vehiculo vehiculo2 = new Vehiculo { Marca = "Chery", Matricula = "TG945884", Modelo = "TIGO", PrecioVenta = 95600, PrecioAlquiler = 100, Activo = true };
+            Vehiculo vehiculo3 = new Vehiculo { Marca = "Fiat", Matricula = "FR46665", Modelo = "UNO", PrecioVenta = 857588, PrecioAlquiler = 130, Activo = true };
             ListaVehiculos.Add(vehiculo);
             ListaVehiculos.Add(vehiculo2);
             ListaVehiculos.Add(vehiculo3);
@@ -47,6 +47,19 @@ namespace Obligatorio.Clases
         public static void GuardarUsuarioLogueado(Usuario usuario)
         {
             usuarioLogueado = usuario;
+        }
+
+        public static List <Vehiculo> VehiculosActivos()
+        {
+            List<Vehiculo> vehiculosActivos = new List<Vehiculo>();
+            foreach (var vehiculo in ListaVehiculos)
+            {
+                if (vehiculo.Activo)
+                {
+                    vehiculosActivos.Add(vehiculo);
+                }
+            }
+            return vehiculosActivos;
         }
     }
 

@@ -12,7 +12,11 @@ namespace Obligatorio
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Master.FindControl("lnkUsuarios").Visible = BaseDeDatos.usuarioLogueado.GetVerUsuarios();
+            Master.FindControl("lnkClientes").Visible = BaseDeDatos.usuarioLogueado.GetVerClientes();
+            Master.FindControl("lnkVehiculos").Visible = BaseDeDatos.usuarioLogueado.GetVerVehiculos();
+            Master.FindControl("lnkVentas").Visible = BaseDeDatos.usuarioLogueado.GetVerVentas();
+            Master.FindControl("lnkAlquileres").Visible = BaseDeDatos.usuarioLogueado.GetVerAlquileres();
         }
 
         protected void gvVehiculos_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)

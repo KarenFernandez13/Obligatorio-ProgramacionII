@@ -26,17 +26,34 @@
             <asp:DropDownList ID="cboVehiculos" runat="server" OnSelectedIndexChanged="cboVehiculos_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
         </div>
     </div>
+    <br />
     <div class="row">
-        <div class="col-lg-6">
-            <asp:Label ID="lblPrecioDia" runat="server" CssClass="form-control" placeholder="Precio/Dia"></asp:Label>
+        <div class="col-lg-2">
+            Valor diario:
+        <asp:Label ID="lblPrecioDia" runat="server" TextMode="Number" placeholder="Precio/Dia"></asp:Label>
         </div>
     </div>
-
+    <br />
+    <div class="row">
+        <div class="col-lg-6">
+            Fecha de retiro:
+        <asp:TextBox ID="txtFechaRetiro" runat="server" TextMode="Date" OnTextChanged="txtFechaRetiro_TextChanged" />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-lg-4">
+            <asp:Label ID="lblFecha" runat="server" Visible="false" ForeColor="Red">Fecha incorrecta</asp:Label>
+        </div>
+    </div>
     <br />
     <div class=" row">
         <div class="col-lg-6">
             <asp:TextBox ID="txtDias" runat="server" CssClass="form-control" placeholder="Cantidad de Dias" OnTextChanged="txtDias_TextChanged"></asp:TextBox>
         </div>
+    </div>
+    <div class="row">
+        <asp:Label ID="lblDias" runat="server" Visible="false" ForeColor="Red"></asp:Label>
     </div>
     <br />
     <div class=" row">

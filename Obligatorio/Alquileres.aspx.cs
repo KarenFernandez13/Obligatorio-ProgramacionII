@@ -22,6 +22,8 @@ namespace Obligatorio
                 cboVehiculos.DataSource = BaseDeDatos.ListaVehiculos;
                 cboVehiculos.DataTextField = "Matricula";
                 cboVehiculos.DataBind();
+
+                txtFechaRetiro.Attributes["min"] = DateTime.Now.ToString("yyyy-MM-dd");
             }
         }
 
@@ -33,27 +35,57 @@ namespace Obligatorio
             {
                 if (vehiculo.Matricula == Matricula)
                 {
-                    lblPrecio.Text = vehiculo.PrecioAlquiler.ToString();                    
-                    lblPrecio.Visible = true;
                     lblPrecioDia.Text = vehiculo.PrecioAlquiler.ToString();
                 }
-            }           
+            }
+        }
+        protected void txtFechaRetiro_TextChanged(object sender, EventArgs e)
+        {
+            DateTime fechaIngresada;
+
+            if (DateTime.TryParse(txtFechaRetiro.Text, out fechaIngresada))
+            {
+                if (fechaIngresada.Date >= DateTime.Today)
+                {
+                    lblFecha.Visible = false;
+                }
+                else
+                {
+                    lblFecha.Text = "Debe ingresar una fecha a partir de hoy";
+                    lblFecha.Visible = true;
+                    txtFechaRetiro.Text = String.Empty;
+                    lblPrecio.Text = String.Empty;
+                }
+            }
         }
 
-        protected void txtDias_TextChanged(object sender, EventArgs e) {}
-        
+        protected void txtDias_TextChanged(object sender, EventArgs e)
+        {
+            while (txtDias.Text == null || txtDias.Text == "0")
+            {
+                lblDias.Text = ("Datos incorrectos. Por favor, inténtalo de nuevo.");
+                txtDias.Text = String.Empty;
+            }
+        }
+
         protected void btnCalcular_Click(object sender, EventArgs e)
         {
-            int precioDia = Int32.Parse(lblPrecioDia.Text);
-            int DiasIng = Int32.Parse(txtDias.Text);
-            int Resultado = precioDia * DiasIng;
-            lblPrecio.Text = Resultado.ToString();
+            if (!String.IsNullOrEmpty(txtDias.ToString()))
+            {
+                int precioDia = Int32.Parse(lblPrecioDia.Text);
+                int DiasIng = Int32.Parse(txtDias.Text);
+                int Resultado = precioDia * DiasIng;
+                lblPrecio.Text = "$" + Resultado.ToString();
+            }
         }
-      
+
         protected void btnAlquilar_Click(object sender, EventArgs e)
         {
             string Cedula = lstClientes.SelectedItem.Value;
             string Matricula = cboVehiculos.SelectedValue;
         }
+
+
+
     }
 }

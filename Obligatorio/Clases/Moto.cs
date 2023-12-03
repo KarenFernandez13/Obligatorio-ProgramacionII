@@ -8,18 +8,18 @@ namespace Obligatorio
 {
     public class Moto : Vehiculo
     {
-        private int cilindrada;
+        private string cilindrada;
 
         public Moto() { }
-        public Moto(string matricula, string marca, string modelo, int año, string color, int kilometros,
-           int precioVenta, int precioAlquiler, int cilindrada, bool Activo) : base(matricula, marca, modelo, año,
-               color, kilometros, precioVenta, precioAlquiler, Activo)
+        public Moto(string matricula, string marca, string modelo, string año, string color, string kilometros,
+           string precioVenta, string precioAlquiler, string cilindrada, bool Activo, string ImagenUno, string ImagenDos, string ImagenTres) : base(matricula, marca, modelo, año,
+               color, kilometros, precioVenta, precioAlquiler, Activo, ImagenUno, ImagenDos, ImagenTres)
         {
             this.cilindrada = cilindrada;
         }
 
-        public int GetCilindrada() => cilindrada;
-        public void SetCilindrada(int cilindrada) => this.cilindrada=cilindrada;    
+        public string GetCilindrada() => cilindrada;
+        public void SetCilindrada(string cilindrada) => this.cilindrada = cilindrada;
 
     }
 }

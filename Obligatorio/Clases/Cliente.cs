@@ -29,10 +29,12 @@ namespace Obligatorio
         public string GetNombre() => Nombre;
         public string GetApellido() => Apellido;
         public string GetTelefono() => Telefono;
+        public string GetDireccion() => Direccion;
 
         public void SetDocumento(string documento) { this.Documento = documento; }
-        public void SetNombre(string nombre) {  this.Nombre = nombre;}
-        public void SetApellido(string apellido) {  this.Apellido = apellido;}
+        public void SetNombre(string nombre) { this.Nombre = nombre; }
+        public void SetApellido(string apellido) { this.Apellido = apellido; }
         public void SetTelefono(string telefono) { this.Telefono = telefono; }
+        public void SetDireccion(string Direccion) {this.Direccion = Direccion; }
     }
 }

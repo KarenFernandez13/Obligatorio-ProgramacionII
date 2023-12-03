@@ -8,18 +8,18 @@ namespace Obligatorio
 {
     public class Camion : Vehiculo
     {
-        private int capacidadCarga;
+        private string capacidadCarga;
 
         public Camion() { }
-        public Camion(string matricula, string marca, string modelo, int año, string color, int kilometros,
-           int precioVenta, int precioAlquiler, int capacidadCarga, bool Activo) : base(matricula, marca, modelo, año,
-               color, kilometros, precioVenta, precioAlquiler, Activo)
+        public Camion(string matricula, string marca, string modelo, string año, string color, string kilometros,
+           string precioVenta, string precioAlquiler, string capacidadCarga, bool Activo, string ImagenUno, string ImagenDos, string ImagenTres) : base(matricula, marca, modelo, año,
+               color, kilometros, precioVenta, precioAlquiler, Activo, ImagenUno, ImagenDos, ImagenTres)
         {
-            this.capacidadCarga=capacidadCarga;
+            this.capacidadCarga = capacidadCarga;
         }
 
 
-        public int GetCapacidadCarga() => capacidadCarga;
-        public void SetCapacidadCarga(int capacidadCarga)=>this.capacidadCarga = capacidadCarga;
+        public string GetCapacidadCarga() => capacidadCarga;
+        public void SetCapacidadCarga(string capacidadCarga) => this.capacidadCarga = capacidadCarga;
     }
 }

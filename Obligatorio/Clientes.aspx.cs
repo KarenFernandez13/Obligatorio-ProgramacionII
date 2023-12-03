@@ -12,7 +12,16 @@ namespace Obligatorio
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Master.FindControl("lnkAdministracion").Visible = BaseDeDatos.usuarioLogueado.GetVerAdministracion();
+            Master.FindControl("lnkClientes").Visible = BaseDeDatos.usuarioLogueado.GetVerClientes();
+            Master.FindControl("lnkVehiculos").Visible = BaseDeDatos.usuarioLogueado.GetVerVehiculos();
+            Master.FindControl("lnkVentas").Visible = BaseDeDatos.usuarioLogueado.GetVerVentas();
+            Master.FindControl("lnkAlquileres").Visible = BaseDeDatos.usuarioLogueado.GetVerAlquileres();
+            if (!Page.IsPostBack)
+            {
+                this.gvClientes.DataSource = BaseDeDatos.ListaClientes;
+                this.gvClientes.DataBind();
+            }
         }
         protected void gvClientes_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
@@ -67,20 +76,36 @@ namespace Obligatorio
             this.gvClientes.DataSource = BaseDeDatos.ListaClientes;
             this.gvClientes.DataBind();
         }
-
+        //datavaluefield
+        //require field validator
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            Cliente cliente = new Cliente();
-            cliente.Documento = txtDocumento.Text;
-            cliente.Nombre = txtNombre.Text;
-            cliente.Apellido = txtApellido.Text;
-            cliente.Telefono = txtTelefono.Text;
-            cliente.Direccion = txtDireccion.Text;
-            BaseDeDatos.ListaClientes.Add(cliente);
-
-            this.gvClientes.DataSource = BaseDeDatos.ListaClientes;
-            this.gvClientes.DataBind();
+            CIValidator CiValidator = new CIValidator();
+            string cedula = txtDocumento.Text;
+            bool ciValida = false;
+            ciValida = CiValidator.Validate(cedula);
+            if (ciValida == false /*|| txtDocumento.Text == null || txtDocumento.Text == String.Empty*/) 
+            {
+                lblMessage.Text = "El documento no es correcto";
+                lblMessage.Visible = true;                
+            }
+            else
+            {
+                Cliente cliente = new Cliente();
+                cliente.Documento = cedula;
+                cliente.Nombre = txtNombre.Text;
+                cliente.Apellido = txtApellido.Text;
+                cliente.Telefono = txtTelefono.Text;
+                cliente.Direccion = txtDireccion.Text;
+                BaseDeDatos.ListaClientes.Add(cliente);
+                lblMessage.Text = "Cliente ingresado correctamente";
+                lblMessage.Visible = true;
+                this.gvClientes.DataSource = BaseDeDatos.ListaClientes;
+                this.gvClientes.DataBind();
+            }         
+                       
         }
+
     }
 
 }

@@ -12,6 +12,15 @@
             <asp:GridView ID="gvVentas" runat="server" Height="171px" OnRowDeleting="gvVentas_RowDeleting"
                 Width="676px" DataKeyNames="DocumentoCliente" AutoGenerateColumns="false">
                 <Columns>
+                    <asp:TemplateField HeaderText="FechaVenta">
+                        <ItemTemplate>
+                            <asp:Label ID="lblFechaVenta" runat="server" Text='<%# Bind("FechaVenta") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtFechaVentaGrid" runat="server" Text='<%# Bind("FechaVenta") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+
                     <asp:TemplateField HeaderText="DocumentoCliente">
                         <ItemTemplate>
                             <asp:Label ID="lbl1" runat="server" Text='<%# Bind("DocumentoCliente") %>'></asp:Label>
@@ -30,16 +39,25 @@
                         </EditItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="FechaVenta">
+                   <%-- <asp:TemplateField HeaderText="Marca">
                         <ItemTemplate>
-                            <asp:Label ID="lblFechaVenta" runat="server" Text='<%# Bind("FechaVenta") %>'></asp:Label>
+                            <asp:Label ID="lblMarca" runat="server" Text='<%# Bind("Marca") %>'></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtFechaVentaGrid" runat="server" Text='<%# Bind("FechaVenta") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtModeloGrid" runat="server" Text='<%# Bind("Marca") %>'></asp:TextBox>
                         </EditItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="Precio">
+                    <asp:TemplateField HeaderText="Modelo">
+                        <ItemTemplate>
+                            <asp:Label ID="lblModelo" runat="server" Text='<%# Bind("Modelo") %>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtModeloGrid" runat="server" Text='<%# Bind("Modelo") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                    </asp:TemplateField>--%>
+
+                    <asp:TemplateField HeaderText="Precio Venta">
                         <ItemTemplate>
                             <asp:Label ID="lblPrecio" runat="server" Text='<%# Bind("Precio") %>'></asp:Label>
                         </ItemTemplate>
@@ -48,7 +66,7 @@
                         </EditItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="DocumentoEmpleado">
+                    <asp:TemplateField HeaderText="Vendedor">
                         <ItemTemplate>
                             <asp:Label ID="lblDocumentoEmpleado" runat="server" Text='<%# Bind("DocumentoEmpleado") %>'></asp:Label>
                         </ItemTemplate>
@@ -62,10 +80,10 @@
             </asp:GridView>
 
             <br />
-             <br />
+            <br />
             <div class=" row">
                 <div class="col-lg-8">
-                    <asp:Button ID="btnVolver" runat="server" CssClass="btn btn-primary" Text="Volver"  OnClick="btnVolver_Click" />
+                    <asp:Button ID="btnVolver" runat="server" CssClass="btn btn-primary" Text="Volver" OnClick="btnVolver_Click" />
                 </div>
             </div>
         </div>

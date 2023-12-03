@@ -24,15 +24,6 @@ namespace Obligatorio
         protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkClientes;
 
         /// <summary>
-        /// Control lnkUsuarios.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkUsuarios;
-
-        /// <summary>
         /// Control lnkVehiculos.
         /// </summary>
         /// <remarks>
@@ -58,6 +49,24 @@ namespace Obligatorio
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkVentas;
+
+        /// <summary>
+        /// Control lnkAdministracion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkAdministracion;
+
+        /// <summary>
+        /// Control LogOut.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor LogOut;
 
         /// <summary>
         /// Control MainContent.

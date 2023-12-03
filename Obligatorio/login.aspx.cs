@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -12,11 +13,12 @@ namespace Obligatorio
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Master.FindControl("lnkUsuarios").Visible = false;
+            Master.FindControl("lnkAdministracion").Visible = false;
             Master.FindControl("lnkClientes").Visible = false;
             Master.FindControl("lnkVehiculos").Visible = false;
             Master.FindControl("lnkVentas").Visible = false;
             Master.FindControl("lnkAlquileres").Visible = false;
+            Master.FindControl("LogOut").Visible = false;
 
 
             if (!Page.IsPostBack)
@@ -39,11 +41,6 @@ namespace Obligatorio
 
             lblMessage.Text = ("Datos incorrectos. Por favor, inténtalo de nuevo.");
 
-        }
-
-        protected void btnRegistro_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Registrarse.aspx");
         }
     }
 }

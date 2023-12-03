@@ -13,6 +13,12 @@ namespace Obligatorio
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Master.FindControl("lnkAdministracion").Visible = BaseDeDatos.usuarioLogueado.GetVerAdministracion();
+            Master.FindControl("lnkClientes").Visible = BaseDeDatos.usuarioLogueado.GetVerClientes();
+            Master.FindControl("lnkVehiculos").Visible = BaseDeDatos.usuarioLogueado.GetVerVehiculos();
+            Master.FindControl("lnkVentas").Visible = BaseDeDatos.usuarioLogueado.GetVerVentas();
+            Master.FindControl("lnkAlquileres").Visible = BaseDeDatos.usuarioLogueado.GetVerAlquileres();
+
             if (!Page.IsPostBack)
             {
                 lstClientes.DataSource = BaseDeDatos.ListaClientes;
@@ -35,7 +41,8 @@ namespace Obligatorio
             {
                 if (vehiculo.Matricula == Matricula)
                 {
-                    lblPrecioDia.Text = vehiculo.PrecioAlquiler.ToString();
+                    lblPrecioDia.Text = vehiculo.PrecioAlquiler;
+                    lblInfoVehiculo.Text=vehiculo.Modelo;
                 }
             }
         }

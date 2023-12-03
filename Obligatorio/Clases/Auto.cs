@@ -8,19 +8,19 @@ namespace Obligatorio
 {
     public class Auto : Vehiculo
     {
-        private int numeroPasajeros;
-        public Auto():base() { }
-        
-        public Auto(string matricula, string marca, string modelo, int año, string color, int kilometros, 
-            int precioVenta, int precioAlquiler, int numeroPasajeros, bool Activo):base(matricula, marca, modelo, año, 
-                color, kilometros, precioVenta, precioAlquiler, Activo)
+        private string numeroPasajeros;
+        public Auto() : base() { }
+
+        public Auto(string matricula, string marca, string modelo, string año, string color, string kilometros,
+            string precioVenta, string precioAlquiler, string numeroPasajeros, bool Activo, string ImagenUno, string ImagenDos, string ImagenTres) : base(matricula, marca, modelo, año,
+                color, kilometros, precioVenta, precioAlquiler, Activo, ImagenUno, ImagenDos, ImagenTres)
         {
-            this.numeroPasajeros = numeroPasajeros;             
+            this.numeroPasajeros = numeroPasajeros;
         }
 
 
-        public int GetNumeroPasajeros() => numeroPasajeros;
-        public void SetNumeroPasajeros(int numeroPasajeros) => this.numeroPasajeros = numeroPasajeros;
+        public string GetNumeroPasajeros() => numeroPasajeros;
+        public void SetNumeroPasajeros(string numeroPasajeros) => this.numeroPasajeros = numeroPasajeros;
     }
-    
+
 }

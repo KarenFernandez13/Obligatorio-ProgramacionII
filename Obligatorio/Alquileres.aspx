@@ -12,17 +12,16 @@
             <h3>Alquileres</h3>
         </div>
     </div>
-    <br />
+    
     <div class=" row">
         <div class="col-lg-8">
             Clientes:           
             <asp:ListBox ID="lstClientes" runat="server" CssClass="form-control"></asp:ListBox>
         </div>
     </div>
-    <br />
     <div class="row">
         <div class="col-lg-2">
-            <asp:Label ID="lblMessage2" runat="server" Visible="true" ForeColor="Red"></asp:Label>
+            <asp:Label ID="lblMessage2" runat="server" Visible="true" ForeColor="Red" Font-Bold="True"></asp:Label>
         </div>
     </div>
     <div class=" row">
@@ -32,6 +31,12 @@
         </div>
     </div>
     <br />
+     <div class="row">
+     <div class="col-lg-4">
+         Modelo: 
+         <asp:Label ID="lblInfoVehiculo" runat="server" Visible="true"></asp:Label>
+     </div>
+ </div>
     <div class="row">
         <div class="col-lg-2">
             Valor diario:
@@ -45,44 +50,43 @@
         <asp:TextBox ID="txtFechaRetiro" runat="server" TextMode="Date" OnTextChanged="txtFechaRetiro_TextChanged" />
         </div>
     </div>
-    <br />
+    
     <div class="row">
         <div class="col-lg-4">
-            <asp:Label ID="lblFecha" runat="server" Visible="false" ForeColor="Red">Fecha incorrecta</asp:Label>
+            <asp:Label ID="lblFecha" runat="server" Visible="false" ForeColor="Red" Font-Bold="True">Fecha incorrecta</asp:Label>
         </div>
     </div>
-    <br />
     <div class=" row">
         <div class="col-lg-6">
-            <asp:TextBox ID="txtDias" runat="server" CssClass="form-control" placeholder="Cantidad de Dias" OnTextChanged="txtDias_TextChanged"></asp:TextBox>
+            <asp:TextBox ID="txtDias" runat="server" CssClass="form-control" placeholder="Cantidad de dias" OnTextChanged="txtDias_TextChanged"></asp:TextBox>
         </div>
     </div>
     
     <div class="row">
-        <asp:Label ID="lblMessage1" runat="server" Visible="true" ForeColor="Red"></asp:Label>
+        <asp:Label ID="lblMessage1" runat="server" Visible="true" ForeColor="Red" Font-Bold="True" ></asp:Label>
     </div>
     <br />
     <div class=" row">
         <div class="col-lg-6">
-            <asp:Button ID="btnCalcular" runat="server" CssClass="btn btn-primary" Text="Calcular Total" OnClick="btnCalcular_Click" />
+            <asp:Button ID="btnCalcular" runat="server" CssClass="btn btn-primary" Text="Calcular total" OnClick="btnCalcular_Click" />
         </div>
     </div>
-    <br />
+    
     <div class="row">
         <div class="col-lg-6">
-            <asp:Label ID="lblPrecio" runat="server" Visible="true" ForeColor="Red"></asp:Label>
+            <asp:Label ID="lblPrecio" runat="server" Visible="true" ForeColor="Red" Font-Bold="True"></asp:Label>
         </div>
     </div>
     <br />
 
     <div class="row">
         <div class="col-lg-6">
-            <asp:Button ID="btnAlquilar" runat="server" CssClass="btn btn-primary" Text="Confirmar Alquiler" OnClick="btnAlquilar_Click" />
+            <asp:Button ID="btnAlquilar" runat="server" CssClass="btn btn-primary" Text="Confirmar alquiler" OnClick="btnAlquilar_Click" />
         </div>
     </div>
     <div class="row">
     <div class="col-lg-6">
-        <asp:Label ID="lblMessage" runat="server" Visible="true" ForeColor="Red"></asp:Label>
+        <asp:Label ID="lblMessage" runat="server" Visible="true" ForeColor="Red" Font-Bold="True"></asp:Label>
     </div>
 </div>
 </asp:Content>

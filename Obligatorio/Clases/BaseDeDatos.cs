@@ -21,13 +21,11 @@ namespace Obligatorio.Clases
             usuario.SetNombre("admin");
             usuario.SetContraseña("admin");
             usuario.SetDocumento("11111111");
-            usuario.SetVerAlquileres(true);
-            usuario.SetVerVentas(true);
-            usuario.SetVerCliente(true);
-            usuario.SetVerUsuarios(true);
-            usuario.SetVerVehiculos(true);
-
+            usuario.SetTipo("Admin");
             ListaUsuarios.Add(usuario);
+
+            Usuario Vendedor = new Usuario("11", "Alejandra", "Fernandez", "Vendedor", "11");            
+            ListaUsuarios.Add(Vendedor);
 
             Cliente cliente = new Cliente { Apellido = "Perez", Documento = "4586658-0", Direccion = "dr Edye 3456", Nombre = "Juan" };
             Cliente cliente2 = new Cliente { Apellido = "Lopez", Documento = "4589998-9", Direccion = "dr Edye 5585", Nombre = "Javier" };
@@ -36,10 +34,10 @@ namespace Obligatorio.Clases
             ListaClientes.Add(cliente2);
             ListaClientes.Add(cliente3);
 
-            Vehiculo vehiculo = new Vehiculo { Marca = "Ferrari", Matricula = "MA458855", Modelo = "F40", PrecioVenta = 1000000, PrecioAlquiler = 1000, Activo= true};
-            Vehiculo vehiculo2 = new Vehiculo { Marca = "Chery", Matricula = "TG945884", Modelo = "TIGO", PrecioVenta = 95600, PrecioAlquiler = 100, Activo = true };
-            Vehiculo vehiculo3 = new Vehiculo { Marca = "Fiat", Matricula = "FR46665", Modelo = "UNO", PrecioVenta = 857588, PrecioAlquiler = 130, Activo = true };
-            Vehiculo vehiculo4 = new Vehiculo { Marca = "Chevrolet", Matricula = "YYU32885", Modelo = "ONIX", PrecioVenta = 80900, PrecioAlquiler = 115, Activo = false };
+            Vehiculo vehiculo = new Vehiculo { Marca = "Ferrari", Matricula = "MA458855", Modelo = "F40", PrecioVenta = "1000000", PrecioAlquiler = "1000", Activo= true};
+            Vehiculo vehiculo2 = new Vehiculo { Marca = "Chery", Matricula = "TG945884", Modelo = "TIGO", PrecioVenta = "95600", PrecioAlquiler = "100", Activo = true };
+            Vehiculo vehiculo3 = new Vehiculo { Marca = "Fiat", Matricula = "FR46665", Modelo = "UNO", PrecioVenta = "857588", PrecioAlquiler = "130", Activo = true };
+            Vehiculo vehiculo4 = new Vehiculo { Marca = "Chevrolet", Matricula = "YYU32885", Modelo = "ONIX", PrecioVenta = "80900", PrecioAlquiler = "115", Activo = false };
             ListaVehiculos.Add(vehiculo);
             ListaVehiculos.Add(vehiculo2);
             ListaVehiculos.Add(vehiculo3);
@@ -52,6 +50,22 @@ namespace Obligatorio.Clases
         public static void GuardarUsuarioLogueado(Usuario usuario)
         {
             usuarioLogueado = usuario;
+            if(usuarioLogueado.GetTipo() == "Admin" || usuarioLogueado.GetTipo() == "admin")
+            {
+                usuario.SetVerAlquileres(true);
+                usuario.SetVerVentas(true);
+                usuario.SetVerCliente(true);
+                usuario.SetVerAdministracion(true);
+                usuario.SetVerVehiculos(true);
+            }
+            else if(usuarioLogueado.GetTipo() == "Vendedor" || usuarioLogueado.GetTipo() == "vendedor")
+            {
+                usuario.SetVerAlquileres(true);
+                usuario.SetVerCliente(true);
+                usuario.SetVerAdministracion(false);
+                usuario.SetVerVehiculos(true);
+                usuario.SetVerVentas(true);
+            }
         }
 
         public static List <Vehiculo> VehiculosActivos()

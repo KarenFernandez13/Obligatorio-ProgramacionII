@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Obligatorio.Clases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -36,7 +37,7 @@ namespace Obligatorio.Clases
             }
         }
 
-        public static bool Validate(string ci)
+        public bool Validate(string ci)
         {
             var dig = ci[ci.Length - 1];
             ci = ci.Substring(0, ci.Length - 1);

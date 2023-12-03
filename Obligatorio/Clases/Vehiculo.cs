@@ -10,16 +10,20 @@ namespace Obligatorio.Clases
         public string Matricula { get; set; }
         public string Marca { get; set; }
         public string Modelo { get; set; }
-        public int Año {  get; set; }  
-        public string Color { get; set; }   
-        public int Kilometros {  get; set; }    
-        public int PrecioVenta { get; set; }
-        public int PrecioAlquiler {  get; set; }
+        public string Año { get; set; }
+        public string Color { get; set; }
+        public string Kilometros { get; set; }
+        public string PrecioVenta { get; set; }
+        public string PrecioAlquiler { get; set; }
         public bool Activo { get; set; }
-        
+        public string ImagenUno { get; set; }
+        public string ImagenDos { get; set; }
+        public string ImagenTres { get; set; }
+
+
 
         public Vehiculo() { }
-        public Vehiculo(string matricula, string marca, string modelo, int año, string color, int kilometros, int precioVenta, int precioAlquiler, bool Activo)  
+        public Vehiculo(string matricula, string marca, string modelo, string año, string color, string kilometros, string precioVenta, string precioAlquiler, bool Activo, string ImagenUno, string ImagenDos, string ImagenTres)
         {
             Matricula = matricula;
             Marca = marca;
@@ -30,28 +34,38 @@ namespace Obligatorio.Clases
             PrecioVenta = precioVenta;
             PrecioAlquiler = precioAlquiler;
             this.Activo = Activo;
+            this.ImagenUno = ImagenUno;
+            this.ImagenDos = ImagenDos;
+            this.ImagenTres = ImagenTres;
         }
 
 
-        public string GetMatricula() => Matricula; 
+        public string GetMatricula() => Matricula;
         public string GetMarca() => Marca;
         public string GetModelo() => Modelo;
         public string GetColor() => Color;
-        public int GetKilometros() => Kilometros;
-        public int GetAño() => Año;
-        public int GetPrecioVenta() => PrecioVenta;
-        public int GetPrecioAlquiler() => PrecioAlquiler;
+        public string GetKilometros() => Kilometros;
+        public string GetAño() => Año;
+        public string GetPrecioVenta() => PrecioVenta;
+        public string GetPrecioAlquiler() => PrecioAlquiler;
         public bool GetActivo() => Activo;
+        public string GetImagenUno() => ImagenUno;
+        public string GetImagenDos() => ImagenDos;
+        public string GetImagenTres() => ImagenTres;
 
-        public void SetMatricula(string matricula) { this.Matricula = matricula;}
+
+        public void SetMatricula(string matricula) { this.Matricula = matricula; }
         public void SetMarca(string marca) { this.Marca = marca; }
-        public void SetModelo(string modelo) {  this.Modelo = modelo;}
-        public void SetColor(string color) {  this.Color = color;}
-        public void SetKilometros(int Kilometros) { this.Kilometros = Kilometros; }
-        public void SetAño(int año) {this.Año = año;}
-        public void SetPrecioVenta(int precioVenta) { this.PrecioVenta = precioVenta;} 
-        public void SetPrecioAlquiler(int precioAlquiler) { this.PrecioAlquiler = precioAlquiler;}
+        public void SetModelo(string modelo) { this.Modelo = modelo; }
+        public void SetColor(string color) { this.Color = color; }
+        public void SetKilometros(string Kilometros) { this.Kilometros = Kilometros; }
+        public void SetAño(string año) { this.Año = año; }
+        public void SetPrecioVenta(string precioVenta) { this.PrecioVenta = precioVenta; }
+        public void SetPrecioAlquiler(string precioAlquiler) { this.PrecioAlquiler = precioAlquiler; }
         public void SetActivo(bool Activo) => this.Activo = Activo;
-             
+        public void SetImagenUno(string ImagenUno) => this.ImagenUno = ImagenUno;
+        public void SetImagenDos(string ImagenDos) => this.ImagenDos = ImagenDos;
+        public void SetImagenTres(string ImagenTres) => this.ImagenTres = ImagenTres;
+
     }
 }

@@ -14,10 +14,10 @@ namespace Obligatorio
         public string Contraseña { get; set; }
 
         public bool VerClientes { get; set; }
-        public bool VerUsuarios { get; set; }
+        public bool VerAdministracion { get; set; }
         public bool VerVentas { get; set; }
         public bool VerVehiculos { get; set; }
-        public bool VerAlquileres { get; set; }
+        public bool VerAlquileres { get; set; }    
 
         public Usuario() { }
         public Usuario(string documento, string nombre, string apellido, string tipo, string contraseña)
@@ -35,52 +35,29 @@ namespace Obligatorio
         public string GetTipo() => Tipo;
         public string GetContraseña() => Contraseña;
 
-        public bool GetVerClientes()
-        {
-            return VerClientes;
-        }
-        public bool GetVerUsuarios()
-        {
-            return VerUsuarios;
-        }
-        public bool GetVerVentas()
-        {
-            return VerVentas;
-        }
-        public bool GetVerVehiculos()
-        {
-            return VerVehiculos;
-        }
-        public bool GetVerAlquileres()
-        {
-            return VerAlquileres;
-        }
-
+        public bool GetVerClientes()=> VerClientes;
+       
+        public bool GetVerAdministracion()=> VerAdministracion;
+        public bool GetVerVentas() => VerVentas;
+        
+        public bool GetVerVehiculos() => VerVehiculos;
+      
+        public bool GetVerAlquileres() => VerAlquileres;
+       
         public void SetDocumento(string documento) => this.Documento = documento; 
         public void SetNombre(string nombre) => this.Nombre = nombre; 
         public void SetApellido(string apellido) => this.Apellido = apellido;        
         public void SetTipo(string tipo) => this.Tipo = tipo;
         public void SetContraseña(string contraseña) => this.Contraseña = contraseña;
 
-        public void SetVerCliente(bool VerCliente)
-        {
-            this.VerClientes = VerCliente;
-        }
-        public void SetVerUsuarios(bool VerUsuarios)
-        {
-            this.VerUsuarios = VerUsuarios;
-        }
-        public void SetVerVentas(bool VerVentas)
-        {
-            this.VerVentas = VerVentas;
-        }
-        public void SetVerVehiculos(bool VerVehiculos)
-        {
-            this.VerVehiculos = VerVehiculos;
-        }
-        public void SetVerAlquileres(bool VerAlquileres)
-        {
-            this.VerAlquileres = VerAlquileres;
-        }
+        public void SetVerCliente(bool VerCliente) => this.VerClientes = VerCliente;
+       
+        public void SetVerAdministracion(bool VerAdministracion) => this.VerAdministracion = VerAdministracion;
+       
+        public void SetVerVentas(bool VerVentas) => this.VerVentas = VerVentas;
+      
+        public void SetVerVehiculos(bool VerVehiculos) => this.VerVehiculos = VerVehiculos;
+      
+        public void SetVerAlquileres(bool VerAlquileres) => this.VerAlquileres = VerAlquileres;
     }
 }

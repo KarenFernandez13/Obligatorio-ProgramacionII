@@ -9,12 +9,27 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h3>Usuarios</h3>
+            <h3>Ingreso de usuarios</h3>
+        </div>
+    </div>
+    <div class=" row">
+        <div class="col-lg-8">
+            <asp:TextBox ID="txtTipo" runat="server" CssClass="form-control" placeholder="Tipo"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvTipo" runat="server"
+                ControlToValidate="txtTipo"
+                ErrorMessage="El campo Tipo es obligatorio."
+                Display="Dynamic">
+            </asp:RequiredFieldValidator>
         </div>
     </div>
     <div class=" row">
         <div class="col-lg-8">
             <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" placeholder="Nombre"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvNombre" runat="server"
+                ControlToValidate="txtNombre"
+                ErrorMessage="El campo Nombre es obligatorio."
+                Display="Dynamic">
+            </asp:RequiredFieldValidator>
         </div>
     </div>
     <div class=" row">
@@ -25,23 +40,35 @@
     <div class=" row">
         <div class="col-lg-8">
             <asp:TextBox ID="txtDocumento" runat="server" CssClass="form-control" placeholder="Documento"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvDocumento" runat="server"
+                ControlToValidate="txtDocumento"
+                ErrorMessage="El campo Documento es obligatorio."
+                Display="Dynamic">
+            </asp:RequiredFieldValidator>
         </div>
     </div>
     <div class=" row">
         <div class="col-lg-8">
             <asp:TextBox ID="txtContraseña" TextMode="Password" runat="server" CssClass="form-control" placeholder="Contraseña"></asp:TextBox>
-        </div>
-    </div>
-    <div class=" row">
-        <div class="col-lg-8">
-            <asp:TextBox ID="txtTipo" runat="server" CssClass="form-control" placeholder="Tipo"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvContraseña" runat="server"
+                ControlToValidate="txtContraseña"
+                ErrorMessage="El campo Contraseña es obligatorio."
+                Display="Dynamic">
+            </asp:RequiredFieldValidator>
         </div>
     </div>
 
-
+    <br />
+    <div class="row">
+        <div class="col-lg-2">
+            <asp:Label ID="lblMessage" runat="server" Visible="false" ForeColor="red" Font-Bold="true"></asp:Label>
+        </div>
+    </div>
+    <br />
     <div class=" row">
         <div class="col-lg-8">
-            <asp:Button ID="btnGuardar" runat="server" CssClass="btn btn-primary" Text="Guardar" OnClick="btnGuardar_Click" />
+            <asp:Button ID="btnGuardar" runat="server" CssClass="btn btn-primary" Text="Guardar" OnClick="btnGuardar_Click" />  
+            
         </div>
     </div>
 

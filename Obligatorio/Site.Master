@@ -4,7 +4,7 @@
 
 <html lang="es">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
@@ -13,9 +13,9 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
+    <link href="Content\bootstrap.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form runat="server">
@@ -34,24 +34,27 @@
                 <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
+                <asp:ScriptReference Path="Scripts/bootstrap.min.js" />
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
 
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" runat="server" href="~/">Negocio de Vehiculos</a>
+                <a class="navbar-brand" runat="server" href="~/">Ventas y Alquileres</a>
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Alternar navegación" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">                      
+                    <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item"><a class="nav-link" id="lnkClientes" runat="server" href="~/Clientes">Clientes</a></li>
-                        <li class="nav-item"><a class="nav-link" id="lnkUsuarios" runat="server" href="~/Usuarios">Usuarios</a></li>
                         <li class="nav-item"><a class="nav-link" id="lnkVehiculos" runat="server" href="~/Vehiculos">Vehículos</a></li>
                         <li class="nav-item"><a class="nav-link" id="lnkAlquileres" runat="server" href="~/Alquileres">Alquileres</a></li>
-                        <li class="nav-item"><a class="nav-link"  id="lnkVentas" runat="server" href="~/Ventas">Ventas</a></li>
+                        <li class="nav-item"><a class="nav-link" id="lnkVentas" runat="server" href="~/Ventas">Ventas</a></li>
+                        <li class="nav-item"><a class="nav-link" id="lnkAdministracion" runat="server" href="~/Administracion">Administración</a></li>
+                        <li class="nav-item"><a class="nav-link" id="LogOut" runat="server" href="login">LogOut</a></li>
+                        
                     </ul>
                 </div>
             </div>

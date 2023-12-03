@@ -12,17 +12,19 @@ namespace Obligatorio
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Master.FindControl("lnkUsuarios").Visible = false;
-            Master.FindControl("lnkClientes").Visible = false;
-            Master.FindControl("lnkVehiculos").Visible = false;
-            Master.FindControl("lnkVentas").Visible = false;
-            Master.FindControl("lnkAlquileres").Visible = false;
+            Master.FindControl("lnkAdministracion").Visible = BaseDeDatos.usuarioLogueado.GetVerAdministracion();
+            Master.FindControl("lnkClientes").Visible = BaseDeDatos.usuarioLogueado.GetVerClientes();
+            Master.FindControl("lnkVehiculos").Visible = BaseDeDatos.usuarioLogueado.GetVerVehiculos();
+            Master.FindControl("lnkVentas").Visible = BaseDeDatos.usuarioLogueado.GetVerVentas();
+            Master.FindControl("lnkAlquileres").Visible = BaseDeDatos.usuarioLogueado.GetVerAlquileres();
 
             if (!Page.IsPostBack)
             {
                
                 this.gvVentas.DataSource = BaseDeDatos.ListaVentas;
                 this.gvVentas.DataBind();
+                //this.gvVentas.DataSource = BaseDeDatos.ListaVehiculos;
+                //this.gvVentas.DataBind();
             }
                 
         }
@@ -59,7 +61,7 @@ namespace Obligatorio
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Ventas.aspx");
+            Response.Redirect("Administracion.aspx");
            
         }
     }

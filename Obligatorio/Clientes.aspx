@@ -12,6 +12,7 @@
             <h3>Clientes</h3>
         </div>
     </div>
+    <br />
     <div class=" row">
         <div class="col-lg-8">
             <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" placeholder="Nombre"></asp:TextBox>
@@ -37,12 +38,18 @@
             <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control" placeholder="Dirección"></asp:TextBox>
         </div>
     </div>
-
+    <br />
+    <div class="row">
+    <div class="col-lg-4">
+        <asp:Label ID="lblMessage" runat="server" Visible="true" ForeColor="Red" Font-Bold="True"></asp:Label>
+    </div>
+    </div>
     <div class=" row">
         <div class="col-lg-8">
             <asp:Button ID="btnGuardar" runat="server" CssClass="btn btn-primary" Text="Guardar" OnClick="btnGuardar_Click" />
         </div>
     </div>
+    <br />
     <div class=" row">
         <div class="col-lg-8">
             <asp:GridView ID="gvClientes" runat="server" Width="80%" BorderWidth="2px" CellSpacing="5"

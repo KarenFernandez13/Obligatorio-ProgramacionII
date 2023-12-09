@@ -1,6 +1,7 @@
 ﻿using Obligatorio.Clases;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -18,6 +19,7 @@ namespace Obligatorio
             Master.FindControl("lnkVentas").Visible = true;
             Master.FindControl("lnkAlquileres").Visible = true;
             Master.FindControl("LogOut").Visible = true;
+            
         }
 
         protected void btnUsuarios_Click(object sender, EventArgs e)
@@ -29,5 +31,11 @@ namespace Obligatorio
         {
             Response.Redirect("VentasRealizadas.aspx");
         }
+
+        protected void btnVerAlquileres_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AlquileresRealizados.aspx");
+        }
+       
     }
 }

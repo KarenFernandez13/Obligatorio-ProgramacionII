@@ -15,7 +15,8 @@ namespace Obligatorio
         public int Precio { get; set; }
        
         public Venta() { }
-        public Venta(DateTime FechaVenta, string DocumentoCliente, string Matricula, string DocumentoEmpleado, int Precio)
+        public Venta(DateTime FechaVenta, string DocumentoCliente, string Matricula, 
+            string DocumentoEmpleado, int Precio)
         {
             this.FechaVenta = FechaVenta;
             this.DocumentoCliente = DocumentoCliente;

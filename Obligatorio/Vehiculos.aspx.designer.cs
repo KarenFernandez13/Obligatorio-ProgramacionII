@@ -24,6 +24,15 @@ namespace Obligatorio
         protected global::System.Web.UI.WebControls.RadioButtonList rblTipoVehiculo;
 
         /// <summary>
+        /// Control rfvTipoVehiculo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTipoVehiculo;
+
+        /// <summary>
         /// Control txtMatricula.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace Obligatorio
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMatricula;
+
+        /// <summary>
+        /// Control rfvMatricula.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvMatricula;
 
         /// <summary>
         /// Control TxtMarca.
@@ -42,6 +60,15 @@ namespace Obligatorio
         protected global::System.Web.UI.WebControls.TextBox TxtMarca;
 
         /// <summary>
+        /// Control rfvMarca.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvMarca;
+
+        /// <summary>
         /// Control TxtModelo.
         /// </summary>
         /// <remarks>
@@ -51,6 +78,15 @@ namespace Obligatorio
         protected global::System.Web.UI.WebControls.TextBox TxtModelo;
 
         /// <summary>
+        /// Control rfvModelo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvModelo;
+
+        /// <summary>
         /// Control TxtAño.
         /// </summary>
         /// <remarks>
@@ -58,6 +94,15 @@ namespace Obligatorio
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtAño;
+
+        /// <summary>
+        /// Control rfvAño.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAño;
 
         /// <summary>
         /// Control TextColor.
@@ -87,6 +132,15 @@ namespace Obligatorio
         protected global::System.Web.UI.WebControls.TextBox TextPrecioVenta;
 
         /// <summary>
+        /// Control rflPrecioVenta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rflPrecioVenta;
+
+        /// <summary>
         /// Control TextPrecioAlquiler.
         /// </summary>
         /// <remarks>
@@ -94,6 +148,15 @@ namespace Obligatorio
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextPrecioAlquiler;
+
+        /// <summary>
+        /// Control rflPrecioAlquiler.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rflPrecioAlquiler;
 
         /// <summary>
         /// Control txtCantPasajeros.
@@ -123,6 +186,15 @@ namespace Obligatorio
         protected global::System.Web.UI.WebControls.TextBox txtToneladas;
 
         /// <summary>
+        /// Control lblimg2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblimg2;
+
+        /// <summary>
         /// Control txtImagenUno.
         /// </summary>
         /// <remarks>
@@ -132,13 +204,13 @@ namespace Obligatorio
         protected global::System.Web.UI.WebControls.TextBox txtImagenUno;
 
         /// <summary>
-        /// Control lblimg1.
+        /// Control rfvImagenUno.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblimg1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvImagenUno;
 
         /// <summary>
         /// Control txtImagenDos.
@@ -150,13 +222,13 @@ namespace Obligatorio
         protected global::System.Web.UI.WebControls.TextBox txtImagenDos;
 
         /// <summary>
-        /// Control lblimg2.
+        /// Control rfvImagenDos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblimg2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvImagenDos;
 
         /// <summary>
         /// Control txtImagenTres.
@@ -168,13 +240,13 @@ namespace Obligatorio
         protected global::System.Web.UI.WebControls.TextBox txtImagenTres;
 
         /// <summary>
-        /// Control lblimg3.
+        /// Control rfvImagenTres.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblimg3;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvImagenTres;
 
         /// <summary>
         /// Control btnGuardar.
@@ -184,6 +256,15 @@ namespace Obligatorio
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGuardar;
+
+        /// <summary>
+        /// Control lblMessage.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
 
         /// <summary>
         /// Control gvVehiculos.

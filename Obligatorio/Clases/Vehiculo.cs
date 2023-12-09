@@ -16,6 +16,7 @@ namespace Obligatorio.Clases
         public string PrecioVenta { get; set; }
         public string PrecioAlquiler { get; set; }
         public bool Activo { get; set; }
+        public string CampoEspecial {  get; set; }
         public string ImagenUno { get; set; }
         public string ImagenDos { get; set; }
         public string ImagenTres { get; set; }
@@ -23,7 +24,8 @@ namespace Obligatorio.Clases
 
 
         public Vehiculo() { }
-        public Vehiculo(string matricula, string marca, string modelo, string año, string color, string kilometros, string precioVenta, string precioAlquiler, bool Activo, string ImagenUno, string ImagenDos, string ImagenTres)
+        public Vehiculo(string matricula, string marca, string modelo, string año, string color, string kilometros,
+            string precioVenta, string precioAlquiler, bool Activo, string ImagenUno, string ImagenDos, string ImagenTres)
         {
             Matricula = matricula;
             Marca = marca;
@@ -67,5 +69,8 @@ namespace Obligatorio.Clases
         public void SetImagenDos(string ImagenDos) => this.ImagenDos = ImagenDos;
         public void SetImagenTres(string ImagenTres) => this.ImagenTres = ImagenTres;
 
+        public string MarcaModelo => $"{Matricula} {"-"} {Marca} {Modelo}";
+
+        
     }
 }

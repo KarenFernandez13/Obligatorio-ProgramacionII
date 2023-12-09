@@ -4,89 +4,124 @@
     <style>
         .row {
             margin-bottom: 8px;
+            display: flex;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
     </style>
-
+    <br />
     <div class="row">
         <div class="col-lg-12">
-            <h3>Alquileres</h3>
+            <h3>AGREGAR UN ALQUILER</h3>
         </div>
     </div>
-    
+    <br />
     <div class=" row">
-        <div class="col-lg-8">
-            Clientes:           
-            <asp:ListBox ID="lstClientes" runat="server" CssClass="form-control"></asp:ListBox>
+        <div class="col-lg-12">
+            <asp:TextBox ID="txtBuscar" runat="server" CssClass="form-control" placeholder="Buscar cliente por CI" OnTextChanged="txtBuscar_TextChanged"></asp:TextBox>
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-2">
+        <div class="col-lg-12">
+            <button id="btnBuscar" runat="server" cssclass="btn btn-dark">Buscar</button>
+        </div>
+    </div>
+    <br />
+    <div class=" row">
+        <div class="col-lg-12">
+            Clientes 
+            <asp:ListBox ID="lstClientes" runat="server" CssClass="form-control"></asp:ListBox>
+            <asp:RequiredFieldValidator ID="rfvListaClientes" runat="server"
+                ControlToValidate="lstClientes"
+                ErrorMessage="Debe seleccionar un cliente."
+                Display="Dynamic">
+            </asp:RequiredFieldValidator>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-lg-12">
             <asp:Label ID="lblMessage2" runat="server" Visible="true" ForeColor="Red" Font-Bold="True"></asp:Label>
         </div>
     </div>
+    <br />
     <div class=" row">
-        <div class="col-lg-6">
-            Vehiculos:           
+        <div class="col-lg-12">
+            Vehiculos&nbsp;           
+           
             <asp:DropDownList ID="cboVehiculos" runat="server" OnSelectedIndexChanged="cboVehiculos_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
         </div>
     </div>
     <br />
-     <div class="row">
-     <div class="col-lg-4">
-         Modelo: 
-         <asp:Label ID="lblInfoVehiculo" runat="server" Visible="true"></asp:Label>
-     </div>
- </div>
     <div class="row">
-        <div class="col-lg-2">
+        <div class="col-lg-12">
             Valor diario:
-        <asp:Label ID="lblPrecioDia" runat="server" TextMode="Number" placeholder="Precio/Dia"></asp:Label>
+       
+            <asp:Label ID="lblPrecioDia" runat="server" TextMode="Number" placeholder="Precio/Dia"></asp:Label>
         </div>
     </div>
     <br />
     <div class="row">
-        <div class="col-lg-6">
-            Fecha de retiro:
-        <asp:TextBox ID="txtFechaRetiro" runat="server" TextMode="Date" OnTextChanged="txtFechaRetiro_TextChanged" />
+        <div class="col-lg-12">
+            Fecha de retiro&nbsp;
+       
+            <asp:TextBox ID="txtFechaRetiro" runat="server" TextMode="Date" OnTextChanged="txtFechaRetiro_TextChanged" />
         </div>
     </div>
-    
+
     <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-12">
             <asp:Label ID="lblFecha" runat="server" Visible="false" ForeColor="Red" Font-Bold="True">Fecha incorrecta</asp:Label>
         </div>
     </div>
     <div class=" row">
-        <div class="col-lg-6">
-            <asp:TextBox ID="txtDias" runat="server" CssClass="form-control" placeholder="Cantidad de dias" OnTextChanged="txtDias_TextChanged"></asp:TextBox>
+        <div class="col-lg-12">
+            Cantidad de días&nbsp;
+            <asp:TextBox ID="txtDias" runat="server" CssClass="form-control" placeholder="Cantidad de dias"></asp:TextBox>
         </div>
     </div>
-    
+    <br />
     <div class="row">
-        <asp:Label ID="lblMessage1" runat="server" Visible="true" ForeColor="Red" Font-Bold="True" ></asp:Label>
+        <asp:Label ID="lblMessage1" runat="server" Visible="true" ForeColor="Red" Font-Bold="True"></asp:Label>
     </div>
     <br />
     <div class=" row">
-        <div class="col-lg-6">
-            <asp:Button ID="btnCalcular" runat="server" CssClass="btn btn-primary" Text="Calcular total" OnClick="btnCalcular_Click" />
+        <div class="col-lg-12">
+            Vendedor&nbsp;          
+    
+            <asp:DropDownList ID="cboVendedores" runat="server" AutoPostBack="true"></asp:DropDownList>&nbsp;
+       
+            <asp:Label ID="lblNombre" runat="server" Text="" Font-Italic="true"></asp:Label>
         </div>
     </div>
-    
+    <br />
+    <div class=" row">
+        <div class="col-lg-12">
+            <asp:Button ID="btnCalcular" runat="server" CssClass="btn btn-dark" Text="Calcular total" OnClick="btnCalcular_Click" />
+        </div>
+    </div>
+
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-12">
             <asp:Label ID="lblPrecio" runat="server" Visible="true" ForeColor="Red" Font-Bold="True"></asp:Label>
         </div>
     </div>
     <br />
 
     <div class="row">
-        <div class="col-lg-6">
-            <asp:Button ID="btnAlquilar" runat="server" CssClass="btn btn-primary" Text="Confirmar alquiler" OnClick="btnAlquilar_Click" />
+        <div class="col-lg-12">
+            <asp:Button ID="btnAlquilar" runat="server" CssClass="btn btn-dark" Text="Confirmar alquiler" OnClick="btnAlquilar_Click" />
         </div>
     </div>
     <div class="row">
-    <div class="col-lg-6">
-        <asp:Label ID="lblMessage" runat="server" Visible="true" ForeColor="Red" Font-Bold="True"></asp:Label>
+        <div class="col-lg-12">
+            <asp:Label ID="lblMessage" runat="server" Visible="true" ForeColor="Red" Font-Bold="True"></asp:Label>
+        </div>
     </div>
-</div>
 </asp:Content>

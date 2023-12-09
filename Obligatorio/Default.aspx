@@ -2,23 +2,27 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <main>
-        <section class="row" aria-labelledby="aspnetTitle">
-            <h1 id="Ventas y Alquileres">Ventas y Alquileres</h1>
-        </section>
-        <div class="row">
-            <section class="col-md-4" aria-labelledby="gettingStartedTitle"> Obligatorio Programación II</section>
-        </div>
-        <div class="row">
-            <h2>Cei</h2>
-        </div>
-        <div class="row">
-            <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            </section>
-            <section class="col-md-4" aria-labelledby="librariesTitle">
-                <h2 id="2023">2023</h2>
-            </section>
-        </div>
-    </main>
+    <style>
+        body {
+            background-image: url(img/fondoDePantallaa.jpg);
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .row {
+            margin-bottom: 8px;
+            display: flex;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 
 </asp:Content>

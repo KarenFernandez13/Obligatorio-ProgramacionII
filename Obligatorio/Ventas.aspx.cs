@@ -18,49 +18,53 @@ namespace Obligatorio
             Master.FindControl("lnkVentas").Visible = BaseDeDatos.usuarioLogueado.GetVerVentas();
             Master.FindControl("lnkAlquileres").Visible = BaseDeDatos.usuarioLogueado.GetVerAlquileres();
             
+
             if (!Page.IsPostBack)
             {
-                lstClientes.DataSource = BaseDeDatos.ListaClientes;
-                lstClientes.DataTextField = "Documento";
-                lstClientes.DataBind();
-                                
                 cboVehiculos.DataSource = BaseDeDatos.VehiculosActivos();
-                cboVehiculos.DataTextField = "Matricula";
+                cboVehiculos.DataValueField = "Matricula";
+                cboVehiculos.DataTextField = "MarcaModelo";
                 cboVehiculos.DataBind();
 
+                lstClientes.DataSource = BaseDeDatos.ListaClientes;
+                lstClientes.DataValueField = "Documento";
+                lstClientes.DataTextField = "NombreApellido";
+                lstClientes.DataBind();
+                   
                 cboVendedores.DataSource = BaseDeDatos.ListaUsuarios;
                 cboVendedores.DataTextField = "Nombre";
                 cboVendedores.DataBind();
+
+                string Matricula = cboVehiculos.SelectedItem.Value;
+
+                foreach (var vehiculo in BaseDeDatos.VehiculosActivos())
+                {
+                    if (vehiculo.Matricula == Matricula)
+                    {
+                        lblPrecio.Text = vehiculo.PrecioVenta;
+                        lblPrecio.Visible = true;
+                    }
+                }
             }
         }
 
         protected void lstClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string Documento = lstClientes.SelectedItem.Value;
-            foreach (var cliente in BaseDeDatos.ListaClientes)
-            {
-                if (Documento == cliente.GetDocumento())
-                {
-                    lblCliente.Visible = true;
-                    lblCliente.Text = cliente.GetNombre() + " " + cliente.GetApellido();
-                }
-            }
+            string Documento = lstClientes.SelectedItem.Value;            
         }
         protected void cboVehiculos_SelectedIndexChanged(object sender, EventArgs e)
         {
             string Matricula = cboVehiculos.SelectedItem.Value;
 
-            foreach (var vehiculo in BaseDeDatos.ListaVehiculos)
+            foreach (var vehiculo in BaseDeDatos.VehiculosActivos())
             {
                 if (vehiculo.Matricula == Matricula)
                 {
-                    lblPrecio.Text = vehiculo.PrecioVenta.ToString();
-                    lblPrecio.Visible = true;
-                    lblModelo.Text = vehiculo.Modelo.ToString();
+                    lblPrecio.Text = vehiculo.PrecioVenta;
+                    lblPrecio.Visible = true;                    
                 }
             }
         }
-
         protected void btnVender_Click(object sender, EventArgs e)
         {
             if (lstClientes.SelectedIndex == -1)
@@ -68,16 +72,26 @@ namespace Obligatorio
                 lblMessage2.Text = "Debe seleccionar un cliente.";
             }
             else
-            {               
+            {
                 string Matricula = cboVehiculos.SelectedValue;
-                DateTime fechaVenta = DateTime.Now.Date;
+                DateTime fechaVenta = DateTime.Now;
                 int precio;
                 Int32.TryParse(lblPrecio.Text, out precio);
                 Venta nuevaVenta = new Venta();
                 nuevaVenta.SetFechaVenta(fechaVenta);
                 nuevaVenta.SetDocumentoCliente(lstClientes.Text);
                 nuevaVenta.SetMatricula(cboVehiculos.Text);
-                nuevaVenta.SetDocumentoEmpleado(BaseDeDatos.usuarioLogueado.Documento);
+                string documentoVendedor = "";
+
+                foreach (var usuario in BaseDeDatos.ListaUsuarios)
+                {
+                    if (usuario.Documento == cboVendedores.SelectedItem.Value)
+                    {
+                        documentoVendedor = usuario.Documento;
+                    }
+                }
+
+                nuevaVenta.SetDocumentoEmpleado(documentoVendedor);
                 nuevaVenta.SetPrecio(precio);
                 BaseDeDatos.ListaVentas.Add(nuevaVenta);
 
@@ -92,8 +106,11 @@ namespace Obligatorio
 
                 lblMessage2.Text = String.Empty;
                 cboVehiculos.DataSource = BaseDeDatos.VehiculosActivos();
-                cboVehiculos.DataTextField = "Matricula";
+                cboVehiculos.DataValueField = "Matricula";
+                cboVehiculos.DataTextField = "MarcaModelo";
                 cboVehiculos.DataBind();
+                txtBuscar.Text = String.Empty;
+                lstClientes.SelectedIndex = -1;
 
                 if (BaseDeDatos.VehiculosActivos().Count == 0)
                 {
@@ -103,23 +120,25 @@ namespace Obligatorio
                 }
                 lblMessage.Text = ("Venta realizada exitosamente!");
             }
-        }
+        }       
 
-        
 
-        protected void cboVendedores_SelectedIndexChanged(object sender, EventArgs e)
+        protected void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            string NombreVendedor = cboVendedores.SelectedItem.Value;
+            string docu = txtBuscar.Text;
+            ListItem clienteEncontrado = lstClientes.Items.FindByValue(docu);
 
-            foreach (var usuario in BaseDeDatos.ListaUsuarios)
+            if (clienteEncontrado != null)
             {
-                if (usuario.Nombre == NombreVendedor)
-                {
-                    lblNombre.Text = usuario.Nombre + " " + usuario.Apellido;
-                }
+                clienteEncontrado.Selected = true;
+            }
+            else
+            {
+                lblMessage2.Text = "No hay un cliente registrado con ese documento";
+                lblMessage2.Visible = true;
+                txtBuscar.Text = String.Empty;
+                lstClientes.SelectedIndex = -1;                
             }
         }
-
-        
     }
 }

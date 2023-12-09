@@ -12,21 +12,19 @@ namespace Obligatorio
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Master.FindControl("lnkAdministracion").Visible = BaseDeDatos.usuarioLogueado.GetVerAdministracion();
-            Master.FindControl("lnkClientes").Visible = BaseDeDatos.usuarioLogueado.GetVerClientes();
-            Master.FindControl("lnkVehiculos").Visible = BaseDeDatos.usuarioLogueado.GetVerVehiculos();
-            Master.FindControl("lnkVentas").Visible = BaseDeDatos.usuarioLogueado.GetVerVentas();
-            Master.FindControl("lnkAlquileres").Visible = BaseDeDatos.usuarioLogueado.GetVerAlquileres();
+            Master.FindControl("lnkAdministracion").Visible = false;
+            Master.FindControl("lnkClientes").Visible = false;
+            Master.FindControl("lnkVehiculos").Visible = false;
+            Master.FindControl("lnkVentas").Visible = false;
+            Master.FindControl("lnkAlquileres").Visible = false;
+            Master.FindControl("LogOut").Visible = false;
 
             if (!Page.IsPostBack)
             {
                
                 this.gvVentas.DataSource = BaseDeDatos.ListaVentas;
-                this.gvVentas.DataBind();
-                //this.gvVentas.DataSource = BaseDeDatos.ListaVehiculos;
-                //this.gvVentas.DataBind();
-            }
-                
+                this.gvVentas.DataBind();                
+            }                
         }
 
         protected void gvVentas_RowDeleting(object sender, GridViewDeleteEventArgs e)

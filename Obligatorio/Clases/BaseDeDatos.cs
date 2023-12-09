@@ -17,40 +17,50 @@ namespace Obligatorio.Clases
 
         public static void CargarDatosIniciales()
         {
-            Usuario usuario = new Usuario();
-            usuario.SetNombre("admin");
-            usuario.SetContraseña("admin");
-            usuario.SetDocumento("11111111");
-            usuario.SetTipo("Admin");
+            Usuario usuario = new Usuario("11111111", "admin", "admin", "Administrador", "admin");
             ListaUsuarios.Add(usuario);
-
             Usuario Vendedor = new Usuario("11", "Alejandra", "Fernandez", "Vendedor", "11");            
             ListaUsuarios.Add(Vendedor);
 
-            Cliente cliente = new Cliente { Apellido = "Perez", Documento = "4586658-0", Direccion = "dr Edye 3456", Nombre = "Juan" };
-            Cliente cliente2 = new Cliente { Apellido = "Lopez", Documento = "4589998-9", Direccion = "dr Edye 5585", Nombre = "Javier" };
-            Cliente cliente3 = new Cliente { Apellido = "Gomez", Documento = "3785468-2", Direccion = "Aigua 3588", Nombre = "Luis" };
+            Cliente cliente = new Cliente {Nombre = "Juan", Apellido = "Perez", Documento = "45866580", 
+                Direccion = "dr Edye 3456", Telefono ="096878967" };
+            Cliente cliente2 = new Cliente {Nombre = "Javier", Apellido = "Lopez", Documento = "56290716",
+                Direccion = "dr Edye 5585", Telefono = "092557465" };
+            Cliente cliente3 = new Cliente { Nombre = "Luis", Apellido = "Gomez", Documento = "37854682",
+                Direccion = "Aigua 3588", Telefono = "099210430" };
             ListaClientes.Add(cliente);
             ListaClientes.Add(cliente2);
             ListaClientes.Add(cliente3);
 
-            Vehiculo vehiculo = new Vehiculo { Marca = "Ferrari", Matricula = "MA458855", Modelo = "F40", PrecioVenta = "1000000", PrecioAlquiler = "1000", Activo= true};
-            Vehiculo vehiculo2 = new Vehiculo { Marca = "Chery", Matricula = "TG945884", Modelo = "TIGO", PrecioVenta = "95600", PrecioAlquiler = "100", Activo = true };
-            Vehiculo vehiculo3 = new Vehiculo { Marca = "Fiat", Matricula = "FR46665", Modelo = "UNO", PrecioVenta = "857588", PrecioAlquiler = "130", Activo = true };
-            Vehiculo vehiculo4 = new Vehiculo { Marca = "Chevrolet", Matricula = "YYU32885", Modelo = "ONIX", PrecioVenta = "80900", PrecioAlquiler = "115", Activo = false };
+            Moto vehiculo = new Moto { Marca = "Kawasaki", Matricula = "MA458855", Modelo = "Ninja", 
+                PrecioVenta = "20000", ImagenUno = "img/Kawasaki-Ninja-300-ii.jpg", ImagenDos = "img/81jSByQFgYL.jpg", ImagenTres = "img/KAWA1182.jpg",
+                PrecioAlquiler = "1000", 
+                Activo= true, CampoEspecial= "1000" };
+            Auto vehiculo2 = new Auto { Marca = "Ferrari", Matricula = "TG945884", Modelo = "F40", 
+                PrecioVenta = "180000", ImagenUno = "img/gas_monkey_f40_01212016.jpg", ImagenDos = "img/Ferrari-F40-Year-1987.jpg", ImagenTres = "img/1991-Ferrari-F40-black-2-630x419.jpg",
+                PrecioAlquiler = "2000",
+                Activo = true, CampoEspecial= "2" };
+            Camion vehiculo3 = new Camion { Marca = "Scania", Matricula = "FR46665", Modelo = "UNO", 
+                PrecioVenta = "250000", ImagenUno = "img/scania-electrico-bateria.jpeg", ImagenDos = "img/scania2.jpg", ImagenTres = "img/scania3.jpg",
+                PrecioAlquiler = "5000", 
+                Activo = true, CampoEspecial= "2000" };
+
             ListaVehiculos.Add(vehiculo);
             ListaVehiculos.Add(vehiculo2);
             ListaVehiculos.Add(vehiculo3);
-            ListaVehiculos.Add(vehiculo4);
 
-            Venta venta = new Venta { FechaVenta = DateTime.Now, DocumentoCliente = "23648895", Matricula = "YYU32885", DocumentoEmpleado = "11111111", Precio = 80900 };
+            Venta venta = new Venta { FechaVenta = DateTime.Now, DocumentoCliente = "45866580", 
+                Matricula = "YU789801", DocumentoEmpleado = "11111111", Precio = 175000 };
             ListaVentas.Add(venta);
+            Alquiler alquiler = new Alquiler { CantidadDias = 2, FechaRetiro = DateTime.Now, DocumentoCliente = "37854682", 
+                Matricula = "GR328755", DocumentoUsuario = "Alejandra", Precio = 10000, Devuelto = false };
+            ListaAlquileres.Add(alquiler);        
         }
 
         public static void GuardarUsuarioLogueado(Usuario usuario)
         {
             usuarioLogueado = usuario;
-            if(usuarioLogueado.GetTipo() == "Admin" || usuarioLogueado.GetTipo() == "admin")
+            if(usuarioLogueado.GetTipo() == "Administrador")
             {
                 usuario.SetVerAlquileres(true);
                 usuario.SetVerVentas(true);
@@ -58,7 +68,7 @@ namespace Obligatorio.Clases
                 usuario.SetVerAdministracion(true);
                 usuario.SetVerVehiculos(true);
             }
-            else if(usuarioLogueado.GetTipo() == "Vendedor" || usuarioLogueado.GetTipo() == "vendedor")
+            else if(usuarioLogueado.GetTipo() == "Vendedor")
             {
                 usuario.SetVerAlquileres(true);
                 usuario.SetVerCliente(true);
@@ -79,7 +89,8 @@ namespace Obligatorio.Clases
                 }
             }
             return vehiculosActivos;
-        }
+        }        
+       
     }
 
 }

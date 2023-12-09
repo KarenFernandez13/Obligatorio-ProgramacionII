@@ -1,4 +1,5 @@
-﻿using Obligatorio.Clases;
+﻿using Antlr.Runtime.Misc;
+using Obligatorio.Clases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,11 +18,11 @@ namespace Obligatorio
             Master.FindControl("lnkVehiculos").Visible = BaseDeDatos.usuarioLogueado.GetVerVehiculos();
             Master.FindControl("lnkVentas").Visible = BaseDeDatos.usuarioLogueado.GetVerVentas();
             Master.FindControl("lnkAlquileres").Visible = BaseDeDatos.usuarioLogueado.GetVerAlquileres();
-            
+
             if (!Page.IsPostBack)
             {
 
-                this.gvVehiculos.DataSource = BaseDeDatos.VehiculosActivos();
+                this.gvVehiculos.DataSource = BaseDeDatos.ListaVehiculos;
                 this.gvVehiculos.DataBind();
             }
         }
@@ -36,9 +37,9 @@ namespace Obligatorio
         protected void gvVehiculos_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             string Matricula = this.gvVehiculos.DataKeys[e.RowIndex].Values[0].ToString();
-            foreach(var vehiculo in BaseDeDatos.ListaVehiculos)
+            foreach (var vehiculo in BaseDeDatos.ListaVehiculos)
             {
-                if(vehiculo.Matricula == Matricula)
+                if (vehiculo.Matricula == Matricula)
                 {
                     BaseDeDatos.ListaVehiculos.Remove(vehiculo);
                     break;
@@ -66,16 +67,16 @@ namespace Obligatorio
             string color = (filaSeleccionada.FindControl("txtColorGrid") as TextBox).Text;
             string kilometros = (filaSeleccionada.FindControl("txtKilometrosGrid") as TextBox).Text;
             string precioVenta = (filaSeleccionada.FindControl("txtPrecioVentaGrid") as TextBox).Text;
-            string precioAlquiler= (filaSeleccionada.FindControl("txtPrecioAlquilerGrid") as TextBox).Text;
+            string precioAlquiler = (filaSeleccionada.FindControl("txtPrecioAlquilerGrid") as TextBox).Text;
             string imagenUno = (filaSeleccionada.FindControl("txtImagenUnoGrid") as TextBox).Text;
             string imagenDos = (filaSeleccionada.FindControl("txtImagenDosGrid") as TextBox).Text;
             string imagenTres = (filaSeleccionada.FindControl("txtImagenTresGrid") as TextBox).Text;
 
             foreach (var vehiculo in BaseDeDatos.ListaVehiculos)
             {
-                if(vehiculo.Matricula == Matricula)
+                if (vehiculo.Matricula == Matricula)
                 {
-                    vehiculo.Modelo = modelo;   
+                    vehiculo.Modelo = modelo;
                     vehiculo.Marca = marca;
                     vehiculo.Año = año;
                     vehiculo.Color = color;
@@ -94,65 +95,73 @@ namespace Obligatorio
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (rblTipoVehiculo.SelectedItem.Value == "Moto")
-            {
+            string MatriculaIngresada = txtMatricula.Text;
+            bool existeVehiculo = BaseDeDatos.ListaVehiculos.Any(vehiculo => vehiculo.Matricula == MatriculaIngresada);
 
-                Moto vehiculo = new Moto();
-                vehiculo.Matricula = txtMatricula.Text;
-                vehiculo.Marca = TxtMarca.Text;
-                vehiculo.Modelo = TxtModelo.Text;
-                vehiculo.Año = TxtAño.Text;
-                vehiculo.Color = TextColor.Text;
-                vehiculo.Kilometros = TextKm.Text;
-                vehiculo.PrecioVenta = TextPrecioVenta.Text;
-                vehiculo.PrecioAlquiler = TextPrecioAlquiler.Text;
-                vehiculo.Activo = true;
-                vehiculo.ImagenUno = txtImagenUno.Text;
-                vehiculo.ImagenDos = txtImagenDos.Text;
-                vehiculo.ImagenTres = txtImagenTres.Text;
-                BaseDeDatos.ListaVehiculos.Add(vehiculo);                              
-            }
-            else if(rblTipoVehiculo.SelectedItem.Value == "Auto")
+            if (existeVehiculo)
             {
-                Auto vehiculo = new Auto(); 
-                vehiculo.Matricula = txtMatricula.Text;
-                vehiculo.Marca = TxtMarca.Text;
-                vehiculo.Modelo = TxtModelo.Text;
-                vehiculo.Año = TxtAño.Text;
-                vehiculo.Color = TextColor.Text;
-                vehiculo.Kilometros = TextKm.Text;
-                vehiculo.PrecioVenta = TextPrecioVenta.Text;
-                vehiculo.PrecioAlquiler = TextPrecioAlquiler.Text;
-                vehiculo.Activo = true;
-                vehiculo.ImagenUno = txtImagenUno.Text;
-                vehiculo.ImagenDos = txtImagenDos.Text;
-                vehiculo.ImagenTres = txtImagenTres.Text;
-                BaseDeDatos.ListaVehiculos.Add(vehiculo);
+                lblMessage.Text = "Ya existe un vehículo con ese número de matrícula";
+                lblMessage.Visible = true;
             }
-            else if(rblTipoVehiculo.SelectedItem.Value == "Camion")
+            else
             {
-                Camion vehiculo = new Camion();
-                vehiculo.Matricula = txtMatricula.Text;
-                vehiculo.Marca = TxtMarca.Text;
-                vehiculo.Modelo = TxtModelo.Text;
-                vehiculo.Año = TxtAño.Text;
-                vehiculo.Color = TextColor.Text;
-                vehiculo.Kilometros = TextKm.Text;
-                vehiculo.PrecioVenta = TextPrecioVenta.Text;
-                vehiculo.PrecioAlquiler = TextPrecioAlquiler.Text;
-                vehiculo.Activo = true;
-                vehiculo.ImagenUno = txtImagenUno.Text;
-                vehiculo.ImagenDos = txtImagenDos.Text;
-                vehiculo.ImagenTres = txtImagenTres.Text;
-                BaseDeDatos.ListaVehiculos.Add(vehiculo);
+                if (rblTipoVehiculo.SelectedItem.Value == "Moto")
+                {
+                    Moto moto = new Moto();
+                    moto.Matricula = txtMatricula.Text;
+                    moto.Marca = TxtMarca.Text;
+                    moto.Modelo = TxtModelo.Text;
+                    moto.Año = TxtAño.Text;
+                    moto.Color = TextColor.Text;
+                    moto.Kilometros = TextKm.Text;
+                    moto.PrecioVenta = TextPrecioVenta.Text;
+                    moto.PrecioAlquiler = TextPrecioAlquiler.Text;
+                    moto.CampoEspecial = "Cilindradas:" + txtCilindrada.Text;
+                    moto.Activo = true;
+                    moto.ImagenUno = txtImagenUno.Text;
+                    moto.ImagenDos = txtImagenDos.Text;
+                    moto.ImagenTres = txtImagenTres.Text;
+                    BaseDeDatos.ListaVehiculos.Add(moto);
+                }
+                else if (rblTipoVehiculo.SelectedItem.Value == "Auto")
+                {
+                    Auto auto = new Auto();
+                    auto.Matricula = txtMatricula.Text;
+                    auto.Marca = TxtMarca.Text;
+                    auto.Modelo = TxtModelo.Text;
+                    auto.Año = TxtAño.Text;
+                    auto.Color = TextColor.Text;
+                    auto.Kilometros = TextKm.Text;
+                    auto.PrecioVenta = TextPrecioVenta.Text;
+                    auto.PrecioAlquiler = TextPrecioAlquiler.Text;
+                    auto.CampoEspecial = "Cant. Pasajeros:" + txtCantPasajeros.Text;
+                    auto.Activo = true;
+                    auto.ImagenUno = txtImagenUno.Text;
+                    auto.ImagenDos = txtImagenDos.Text;
+                    auto.ImagenTres = txtImagenTres.Text;
+                    BaseDeDatos.ListaVehiculos.Add(auto);
+                }
+                else if (rblTipoVehiculo.SelectedItem.Value == "Camion")
+                {
+                    Camion camion = new Camion();
+                    camion.Matricula = txtMatricula.Text;
+                    camion.Marca = TxtMarca.Text;
+                    camion.Modelo = TxtModelo.Text;
+                    camion.Año = TxtAño.Text;
+                    camion.Color = TextColor.Text;
+                    camion.Kilometros = TextKm.Text;
+                    camion.PrecioVenta = TextPrecioVenta.Text;
+                    camion.PrecioAlquiler = TextPrecioAlquiler.Text;
+                    camion.CampoEspecial = "Toneladas: " + txtToneladas.Text;
+                    camion.Activo = true;
+                    camion.ImagenUno = txtImagenUno.Text;
+                    camion.ImagenDos = txtImagenDos.Text;
+                    camion.ImagenTres = txtImagenTres.Text;
+                    BaseDeDatos.ListaVehiculos.Add(camion);
+                }
+                this.gvVehiculos.DataSource = BaseDeDatos.ListaVehiculos;
+                this.gvVehiculos.DataBind();
             }
-            this.gvVehiculos.DataSource = BaseDeDatos.ListaVehiculos;
-            this.gvVehiculos.DataBind();
-        }
-
-        protected void txtCantPasajeros_TextChanged(object sender, EventArgs e)
-        {
-            
         }
 
         protected void rblTipoVehiculo_SelectedIndexChanged(object sender, EventArgs e)

@@ -12,7 +12,7 @@ namespace Obligatorio
         public string Apellido { get; set; }
         public string Tipo { get; set; }
         public string Contraseña { get; set; }
-
+        public string NombreApellido => $"{Documento} {"-"} {Nombre} {Apellido}";
         public bool VerClientes { get; set; }
         public bool VerAdministracion { get; set; }
         public bool VerVentas { get; set; }

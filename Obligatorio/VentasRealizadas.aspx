@@ -1,18 +1,31 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VentasRealizadas.aspx.cs" Inherits="Obligatorio.VentasRealizadas" %>
+﻿<%@ Page Title="Listado de ventas" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VentasRealizadas.aspx.cs" Inherits="Obligatorio.VentasRealizadas" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <style>
+        <style>
         .row {
             margin-bottom: 8px;
+            display: flex;
+            text-align: center;
         }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }         
     </style>
-
+    <br />
+     <div class="row">
+     <div class="col-lg-12">
+         <h3>VENTAS</h3>
+     </div>
+ </div>
     <div class=" row">
-        <div class="col-lg-8">
-            <asp:GridView ID="gvVentas" runat="server" Height="171px" OnRowDeleting="gvVentas_RowDeleting"
-                Width="676px" DataKeyNames="DocumentoCliente" AutoGenerateColumns="false">
+        <div class="col-lg-12">
+            <asp:GridView ID="gvVentas" runat="server" Height="150px" OnRowDeleting="gvVentas_RowDeleting" BorderWidth="2px" CellSpacing="5"
+                Width="650px" DataKeyNames="DocumentoCliente" AutoGenerateColumns="false">
                 <Columns>
-                    <asp:TemplateField HeaderText="FechaVenta">
+                    <asp:TemplateField HeaderText="Fecha venta">
                         <ItemTemplate>
                             <asp:Label ID="lblFechaVenta" runat="server" Text='<%# Bind("FechaVenta") %>'></asp:Label>
                         </ItemTemplate>
@@ -21,7 +34,7 @@
                         </EditItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="DocumentoCliente">
+                    <asp:TemplateField HeaderText="Documento cliente">
                         <ItemTemplate>
                             <asp:Label ID="lbl1" runat="server" Text='<%# Bind("DocumentoCliente") %>'></asp:Label>
                         </ItemTemplate>
@@ -39,25 +52,7 @@
                         </EditItemTemplate>
                     </asp:TemplateField>
 
-                   <%-- <asp:TemplateField HeaderText="Marca">
-                        <ItemTemplate>
-                            <asp:Label ID="lblMarca" runat="server" Text='<%# Bind("Marca") %>'></asp:Label>
-                        </ItemTemplate>
-                        <EditItemTemplate>
-                            <asp:TextBox ID="txtModeloGrid" runat="server" Text='<%# Bind("Marca") %>'></asp:TextBox>
-                        </EditItemTemplate>
-                    </asp:TemplateField>
-
-                    <asp:TemplateField HeaderText="Modelo">
-                        <ItemTemplate>
-                            <asp:Label ID="lblModelo" runat="server" Text='<%# Bind("Modelo") %>'></asp:Label>
-                        </ItemTemplate>
-                        <EditItemTemplate>
-                            <asp:TextBox ID="txtModeloGrid" runat="server" Text='<%# Bind("Modelo") %>'></asp:TextBox>
-                        </EditItemTemplate>
-                    </asp:TemplateField>--%>
-
-                    <asp:TemplateField HeaderText="Precio Venta">
+                    <asp:TemplateField HeaderText="Precio venta">
                         <ItemTemplate>
                             <asp:Label ID="lblPrecio" runat="server" Text='<%# Bind("Precio") %>'></asp:Label>
                         </ItemTemplate>
@@ -71,19 +66,17 @@
                             <asp:Label ID="lblDocumentoEmpleado" runat="server" Text='<%# Bind("DocumentoEmpleado") %>'></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtDcoumentoEmpleadoGrid" runat="server" Text='<%# Bind("DocumentoEmpleado") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtDocumentoEmpleadoGrid" runat="server" Text='<%# Bind("DocumentoEmpleado") %>'></asp:TextBox>
                         </EditItemTemplate>
                     </asp:TemplateField>
 
                     <asp:CommandField ButtonType="Link" ShowDeleteButton="true" />
                 </Columns>
             </asp:GridView>
-
-            <br />
             <br />
             <div class=" row">
-                <div class="col-lg-8">
-                    <asp:Button ID="btnVolver" runat="server" CssClass="btn btn-primary" Text="Volver" OnClick="btnVolver_Click" />
+                <div class="col-lg-12">
+                    <asp:Button ID="btnVolver" runat="server" CssClass="btn btn-dark" Text="Volver" OnClick="btnVolver_Click" />
                 </div>
             </div>
         </div>

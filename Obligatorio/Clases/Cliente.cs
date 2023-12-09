@@ -12,7 +12,7 @@ namespace Obligatorio
         public string Apellido { get; set; }
         public string Telefono { get; set; }
         public string Direccion { get; set; }
-
+        public string NombreApellido => $"{Documento} {"-"} {Nombre} {Apellido}";
         public Cliente() { }
 
         public Cliente(string documento, string nombre, string apellido, string telefono, string direccion)
@@ -36,5 +36,7 @@ namespace Obligatorio
         public void SetApellido(string apellido) { this.Apellido = apellido; }
         public void SetTelefono(string telefono) { this.Telefono = telefono; }
         public void SetDireccion(string Direccion) {this.Direccion = Direccion; }
+
+       
     }
 }

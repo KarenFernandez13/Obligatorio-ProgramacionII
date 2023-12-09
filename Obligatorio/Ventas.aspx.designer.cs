@@ -15,6 +15,24 @@ namespace Obligatorio
     {
 
         /// <summary>
+        /// Control txtBuscar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBuscar;
+
+        /// <summary>
+        /// Control btnBuscar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnBuscar;
+
+        /// <summary>
         /// Control lstClientes.
         /// </summary>
         /// <remarks>
@@ -24,13 +42,13 @@ namespace Obligatorio
         protected global::System.Web.UI.WebControls.ListBox lstClientes;
 
         /// <summary>
-        /// Control lblCliente.
+        /// Control rfvListaClientes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCliente;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvListaClientes;
 
         /// <summary>
         /// Control lblMessage2.
@@ -49,15 +67,6 @@ namespace Obligatorio
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cboVehiculos;
-
-        /// <summary>
-        /// Control lblModelo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblModelo;
 
         /// <summary>
         /// Control lblSimbolo.

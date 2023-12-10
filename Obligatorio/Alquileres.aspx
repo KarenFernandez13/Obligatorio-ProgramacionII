@@ -36,7 +36,7 @@
     <div class=" row">
         <div class="col-lg-12">
             Clientes 
-            <asp:ListBox ID="lstClientes" runat="server" CssClass="form-control"></asp:ListBox>
+            <asp:ListBox ID="lstClientes" runat="server" CssClass="form-control" OnSelectedIndexChanged="lstClientes_SelectedIndexChanged" AutoPostBack="true"></asp:ListBox>
             <asp:RequiredFieldValidator ID="rfvListaClientes" runat="server"
                 ControlToValidate="lstClientes"
                 ErrorMessage="Debe seleccionar un cliente."
@@ -55,7 +55,13 @@
         <div class="col-lg-12">
             Vehiculos&nbsp;           
            
-            <asp:DropDownList ID="cboVehiculos" runat="server" OnSelectedIndexChanged="cboVehiculos_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+            <asp:DropDownList ID="cboVehiculos" runat="server" OnSelectedIndexChanged="cboVehiculos_SelectedIndexChanged" ></asp:DropDownList>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-lg-12">
+            <asp:Label ID="lblFecha" runat="server" Visible="false" ForeColor="Red" Font-Bold="True"></asp:Label>
         </div>
     </div>
     <br />
@@ -75,11 +81,6 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-lg-12">
-            <asp:Label ID="lblFecha" runat="server" Visible="false" ForeColor="Red" Font-Bold="True">Fecha incorrecta</asp:Label>
-        </div>
-    </div>
     <div class=" row">
         <div class="col-lg-12">
             Cantidad de días&nbsp;
@@ -95,7 +96,7 @@
         <div class="col-lg-12">
             Vendedor&nbsp;          
     
-            <asp:DropDownList ID="cboVendedores" runat="server" AutoPostBack="true"></asp:DropDownList>&nbsp;
+            <asp:DropDownList ID="cboVendedores" runat="server"></asp:DropDownList>&nbsp;
        
             <asp:Label ID="lblNombre" runat="server" Text="" Font-Italic="true"></asp:Label>
         </div>
@@ -103,7 +104,7 @@
     <br />
     <div class=" row">
         <div class="col-lg-12">
-            <asp:Button ID="btnCalcular" runat="server" CssClass="btn btn-dark" Text="Calcular total" OnClick="btnCalcular_Click" />
+            <asp:Button ID="btnCalcular" runat="server" CssClass="btn btn-dark" AutoPostBack="false" Text="Calcular total" OnClick="btnCalcular_Click" />
         </div>
     </div>
 

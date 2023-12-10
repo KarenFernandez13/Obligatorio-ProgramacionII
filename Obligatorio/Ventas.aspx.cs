@@ -32,7 +32,7 @@ namespace Obligatorio
                 lstClientes.DataBind();
                    
                 cboVendedores.DataSource = BaseDeDatos.ListaUsuarios;
-                cboVendedores.DataTextField = "Nombre";
+                cboVendedores.DataTextField = "NombreApellido";
                 cboVendedores.DataBind();
 
                 string Matricula = cboVehiculos.SelectedItem.Value;
@@ -50,7 +50,7 @@ namespace Obligatorio
 
         protected void lstClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string Documento = lstClientes.SelectedItem.Value;            
+            lblMessage.Text = String.Empty;
         }
         protected void cboVehiculos_SelectedIndexChanged(object sender, EventArgs e)
         {

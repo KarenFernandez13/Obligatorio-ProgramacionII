@@ -18,7 +18,7 @@ namespace Obligatorio
             Master.FindControl("lnkVehiculos").Visible = BaseDeDatos.usuarioLogueado.GetVerVehiculos();
             Master.FindControl("lnkVentas").Visible = BaseDeDatos.usuarioLogueado.GetVerVentas();
             Master.FindControl("lnkAlquileres").Visible = BaseDeDatos.usuarioLogueado.GetVerAlquileres();
-            
+
 
             if (!Page.IsPostBack)
             {
@@ -57,7 +57,7 @@ namespace Obligatorio
             {
                 if (vehiculo.Matricula == Matricula)
                 {
-                    lblPrecioDia.Text = vehiculo.PrecioAlquiler;                    
+                    lblPrecioDia.Text = vehiculo.PrecioAlquiler;
                 }
             }
         }
@@ -101,8 +101,9 @@ namespace Obligatorio
                 Int32.TryParse(txtDias.Text, out cantDias);
                 int Resultado = precioDia * cantDias;
                 lblPrecio.Text = "$" + Resultado.ToString();
-                
+
             }
+
         }
 
         protected void btnAlquilar_Click(object sender, EventArgs e)
@@ -111,7 +112,7 @@ namespace Obligatorio
             {
                 lblMessage1.Text = "Debe ingresar cantidad de días.";
             }
-            else 
+            else
             {
                 lblMessage1.Visible = false;
                 lblMessage2.Visible = false;
@@ -179,6 +180,8 @@ namespace Obligatorio
             {
                 lblMessage2.Text = String.Empty;
             }
+            lblMessage.Text = String.Empty;
+            lblPrecio.Text = String.Empty;
         }
 
         protected void txtBuscar_TextChanged(object sender, EventArgs e)
@@ -188,7 +191,7 @@ namespace Obligatorio
 
             if (clienteEncontrado != null)
             {
-                clienteEncontrado.Selected = true;                
+                clienteEncontrado.Selected = true;
             }
             else
             {
@@ -197,8 +200,9 @@ namespace Obligatorio
                 txtBuscar.Text = String.Empty;
                 lstClientes.SelectedIndex = -1;
             }
-            
+
         }
 
+       
     }
 }

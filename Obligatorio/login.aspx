@@ -22,7 +22,7 @@
         </div>
     </div>
     <br />
-            <asp:Label ID="lblCedula" runat="server" Text="(*) Cédula sin puntos ni guiones." CssClass="align-self-center" Font-Italic="true"></asp:Label>
+            <asp:Label ID="lblCedula" runat="server" Text="(*) Cédula sin puntos ni guiones." CssClass="align-self-center" Font-Italic="true" Font-Size="Small"></asp:Label>
     <br />
     <div class=" row">
         <div class="col-lg-12">    

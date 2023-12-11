@@ -23,11 +23,11 @@
     <div class=" row">
         <div class="col-lg-12">
             <asp:GridView ID="gvVentas" runat="server" Height="150px" OnRowDeleting="gvVentas_RowDeleting" BorderWidth="2px" CellSpacing="5"
-                Width="650px" DataKeyNames="DocumentoCliente" AutoGenerateColumns="false">
+                Width="650px" DataKeyNames="DocumentoCliente" AutoGenerateColumns="false"  CssClass="table table-bordered table-condensed table-responsive table-hover">
                 <Columns>
                     <asp:TemplateField HeaderText="Fecha venta">
                         <ItemTemplate>
-                            <asp:Label ID="lblFechaVenta" runat="server" Text='<%# Bind("FechaVenta") %>'></asp:Label>
+                            <asp:Label ID="lblFechaVenta" runat="server" TextMode="Date" Text='<%# Bind("FechaVenta") %>'></asp:Label>
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:TextBox ID="txtFechaVentaGrid" runat="server" Text='<%# Bind("FechaVenta") %>'></asp:TextBox>

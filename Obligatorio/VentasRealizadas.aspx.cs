@@ -20,8 +20,7 @@ namespace Obligatorio
             Master.FindControl("LogOut").Visible = false;
 
             if (!Page.IsPostBack)
-            {
-               
+            {               
                 this.gvVentas.DataSource = BaseDeDatos.ListaVentas;
                 this.gvVentas.DataBind();                
             }                

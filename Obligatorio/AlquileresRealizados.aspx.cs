@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Web;
 using System.Web.UI;
@@ -88,12 +89,21 @@ namespace Obligatorio
             string NumeroAlquiler = this.gvAlquileres.DataKeys[e.RowIndex].Values[0].ToString();
 
             bool devuelto = (filaSeleccionada.FindControl("chkDevueltoGrid") as CheckBox).Checked;
-
+            string matricula = "";
             foreach (var alquiler in BaseDeDatos.ListaAlquileres)
             {
                 if (alquiler.NumeroAlquiler.ToString() == NumeroAlquiler)
                 {
                     alquiler.Devuelto = devuelto;
+                    matricula = alquiler.Matricula;
+                }
+            }
+            
+            foreach (var vehiculo in BaseDeDatos.ListaVehiculos)
+            {
+                if (vehiculo.Matricula == matricula)
+                {
+                    vehiculo.Activo = true;
                 }
             }
 

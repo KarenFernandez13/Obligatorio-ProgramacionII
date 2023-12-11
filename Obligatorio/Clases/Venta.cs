@@ -31,7 +31,7 @@ namespace Obligatorio
         public string GetDocumentoEmpleado() => DocumentoEmpleado;
         public int GetPrecio() => Precio;     
 
-        public void SetFechaVenta(DateTime FechaRetiro) { this.FechaVenta = FechaVenta; }
+        public void SetFechaVenta(DateTime FechaVenta) { this.FechaVenta = FechaVenta; }
         public void SetMatricula(string Matricula) { this.Matricula = Matricula; }
         public void SetDocumentoCliente(string DocumentoCliente) { this.DocumentoCliente = DocumentoCliente; }
         public void SetDocumentoEmpleado(string DocumentoEmpleado) { this.DocumentoEmpleado = DocumentoEmpleado; }

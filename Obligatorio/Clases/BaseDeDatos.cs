@@ -17,9 +17,9 @@ namespace Obligatorio.Clases
 
         public static void CargarDatosIniciales()
         {
-            Usuario usuario = new Usuario("11111111", "admin", "admin", "Administrador", "admin");
+            Usuario usuario = new Usuario("11111111", "Administrador", "01", "Administrador", "admin");
             ListaUsuarios.Add(usuario);
-            Usuario Vendedor = new Usuario("11", "Alejandra", "Fernandez", "Vendedor", "11");            
+            Usuario Vendedor = new Usuario("44292691", "Alejandra", "Fernandez", "Vendedor", "11");            
             ListaUsuarios.Add(Vendedor);
 
             Cliente cliente = new Cliente {Nombre = "Juan", Apellido = "Perez", Documento = "45866580", 
@@ -32,28 +32,33 @@ namespace Obligatorio.Clases
             ListaClientes.Add(cliente2);
             ListaClientes.Add(cliente3);
 
-            Moto vehiculo = new Moto { Marca = "Kawasaki", Matricula = "MA458855", Modelo = "Ninja", 
+            Moto vehiculo = new Moto { Marca = "Kawasaki", Matricula = "MA458855", Modelo = "Ninja", Color = "Blanco", Kilometros="45000",
                 PrecioVenta = "20000", ImagenUno = "img/Kawasaki-Ninja-300-ii.jpg", ImagenDos = "img/81jSByQFgYL.jpg", ImagenTres = "img/KAWA1182.jpg",
-                PrecioAlquiler = "1000", 
-                Activo= true, CampoEspecial= "1000" };
-            Auto vehiculo2 = new Auto { Marca = "Ferrari", Matricula = "TG945884", Modelo = "F40", 
+                PrecioAlquiler = "1000", Activo= true, CampoEspecial= "Cilindrada: 1000", Año = "2015" };
+            Auto vehiculo2 = new Auto { Marca = "Ferrari", Matricula = "TG945884", Modelo = "F40", Color="Negro",Kilometros = "59000",
                 PrecioVenta = "180000", ImagenUno = "img/gas_monkey_f40_01212016.jpg", ImagenDos = "img/Ferrari-F40-Year-1987.jpg", ImagenTres = "img/1991-Ferrari-F40-black-2-630x419.jpg",
-                PrecioAlquiler = "2000",
-                Activo = true, CampoEspecial= "2" };
-            Camion vehiculo3 = new Camion { Marca = "Scania", Matricula = "FR46665", Modelo = "UNO", 
-                PrecioVenta = "250000", ImagenUno = "img/scania-electrico-bateria.jpeg", ImagenDos = "img/scania2.jpg", ImagenTres = "img/scania3.jpg",
-                PrecioAlquiler = "5000", 
-                Activo = true, CampoEspecial= "2000" };
-
+                PrecioAlquiler = "2000",Activo = true, CampoEspecial= "Cant. Pasajeros: 2", Año = "2009" };
+            Camion vehiculo3 = new Camion { Marca = "Scania", Matricula = "FR46665", Modelo = "V8", Color = "Blanco", PrecioVenta = "250000", 
+                ImagenUno = "img/scania-electrico-bateria.jpeg", ImagenDos = "img/scania2.jpg", ImagenTres = "img/scania3.jpg",
+                Kilometros = "468000", PrecioAlquiler = "5000", Activo = true, CampoEspecial= "Toneladas: 100", Año = "2019" };
+            Auto vehiculo4 = new Auto{Marca = "Nissan",Matricula = "NT2464", Modelo = "Tiida",PrecioVenta = "8000", Color= "Plata", ImagenUno = "img/tiida1.jpg",
+                ImagenDos = "img/tiida2.jpeg",ImagenTres = "img/tiida3.jpg", PrecioAlquiler = "150", Activo = false, CampoEspecial = "Cant. Pasajeros: 4",
+                Kilometros = "122560", Año="2010"};
+            Camion vehiculo5 = new Camion {Marca = "Mercedes", Modelo = "1114", Matricula = "YU789801", PrecioVenta = "250000", ImagenUno = "img/mercedes1114.jpg",
+                ImagenDos = "img/mercedes1114-2.jpg", ImagenTres = "img/mercedes1114-3.jpg", PrecioAlquiler = "4000", Activo = false, Color="Rojo",
+                CampoEspecial = "Toneladas: 48",Kilometros = "620000", Año="1968"};
+        
             ListaVehiculos.Add(vehiculo);
             ListaVehiculos.Add(vehiculo2);
             ListaVehiculos.Add(vehiculo3);
+            ListaVehiculos.Add(vehiculo4);
+            ListaVehiculos.Add(vehiculo5);
 
             Venta venta = new Venta { FechaVenta = DateTime.Now, DocumentoCliente = "45866580", 
-                Matricula = "YU789801", DocumentoEmpleado = "11111111", Precio = 175000 };
+                Matricula = "YU789801", DocumentoEmpleado = "44292691", Precio = 250000 };
             ListaVentas.Add(venta);
             Alquiler alquiler = new Alquiler { CantidadDias = 2, FechaRetiro = DateTime.Now, DocumentoCliente = "37854682", 
-                Matricula = "GR328755", DocumentoUsuario = "Alejandra", Precio = 10000, Devuelto = false };
+                Matricula = "NT2464", Precio = 300, Devuelto = false };
             ListaAlquileres.Add(alquiler);        
         }
 

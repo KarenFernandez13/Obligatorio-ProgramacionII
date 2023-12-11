@@ -22,29 +22,25 @@
         </div>
     </div>
     <br />
-    <div class=" row">
-        <div class="col-lg-12">
+    <br />
+    <div class=" row">   
+        <div class="col-lg-6">
+            <br />
             <asp:TextBox ID="txtBuscar" runat="server" CssClass="form-control" placeholder="Buscar cliente por CI" OnTextChanged="txtBuscar_TextChanged"></asp:TextBox>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
+            <br />
             <button id="btnBuscar" runat="server" cssclass="btn btn-dark">Buscar</button>
         </div>
-    </div>
-    <br />
-    <div class=" row">
-        <div class="col-lg-12">
+        <div class="col-lg-6">
             Clientes 
-            <asp:ListBox ID="lstClientes" runat="server" CssClass="form-control" OnSelectedIndexChanged="lstClientes_SelectedIndexChanged" AutoPostBack="true"></asp:ListBox>
+   
+    <asp:ListBox ID="lstClientes" runat="server" CssClass="form-control" OnSelectedIndexChanged="lstClientes_SelectedIndexChanged" AutoPostBack="true"></asp:ListBox>
             <asp:RequiredFieldValidator ID="rfvListaClientes" runat="server"
                 ControlToValidate="lstClientes"
                 ErrorMessage="Debe seleccionar un cliente."
                 Display="Dynamic">
-            </asp:RequiredFieldValidator>
+    </asp:RequiredFieldValidator>
         </div>
     </div>
-    <br />
     <div class="row">
         <div class="col-lg-12">
             <asp:Label ID="lblMessage2" runat="server" Visible="true" ForeColor="Red" Font-Bold="True"></asp:Label>
@@ -52,10 +48,29 @@
     </div>
     <br />
     <div class=" row">
-        <div class="col-lg-12">
-            Vehiculos&nbsp;           
+        <div class="col-lg-6">
+            Vehiculos&nbsp; 
            
-            <asp:DropDownList ID="cboVehiculos" runat="server" OnSelectedIndexChanged="cboVehiculos_SelectedIndexChanged" ></asp:DropDownList>
+            <asp:DropDownList ID="cboVehiculos" runat="server" OnSelectedIndexChanged="cboVehiculos_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+        </div>
+        <div class="col-lg-6">
+            <img src="img/" id="imgVehiculo" runat="server" alt="Foto del vehículo" visible="false" width="150" height="100" data-value="Matricula" />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-lg-12">
+            Valor diario:    
+        
+            <asp:Label ID="lblPrecioDia" runat="server" TextMode="Number" placeholder="Precio/Dia"></asp:Label>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-lg-12">
+            Fecha de retiro&nbsp;    
+        
+            <asp:TextBox ID="txtFechaRetiro" runat="server" TextMode="Date" OnTextChanged="txtFechaRetiro_TextChanged" />
         </div>
     </div>
     <br />
@@ -65,25 +80,10 @@
         </div>
     </div>
     <br />
-    <div class="row">
-        <div class="col-lg-12">
-            Valor diario:
-       
-            <asp:Label ID="lblPrecioDia" runat="server" TextMode="Number" placeholder="Precio/Dia"></asp:Label>
-        </div>
-    </div>
-    <br />
-    <div class="row">
-        <div class="col-lg-12">
-            Fecha de retiro&nbsp;
-       
-            <asp:TextBox ID="txtFechaRetiro" runat="server" TextMode="Date" OnTextChanged="txtFechaRetiro_TextChanged" />
-        </div>
-    </div>
-
     <div class=" row">
         <div class="col-lg-12">
             Cantidad de días&nbsp;
+           
             <asp:TextBox ID="txtDias" runat="server" CssClass="form-control" placeholder="Cantidad de dias"></asp:TextBox>
         </div>
     </div>
@@ -94,11 +94,10 @@
     <br />
     <div class=" row">
         <div class="col-lg-12">
-            Vendedor&nbsp;          
-    
-            <asp:DropDownList ID="cboVendedores" runat="server"></asp:DropDownList>&nbsp;
-       
-            <asp:Label ID="lblNombre" runat="server" Text="" Font-Italic="true"></asp:Label>
+            Vendedor&nbsp;
+           
+            <asp:DropDownList ID="cboVendedores" runat="server" AutoPostBack="true">
+            </asp:DropDownList>
         </div>
     </div>
     <br />
@@ -122,7 +121,7 @@
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <asp:Label ID="lblMessage" runat="server" Visible="true" ForeColor="Red" Font-Bold="True"></asp:Label>
+            <asp:Label ID="lblMessage" runat="server" Visible="true" ForeColor="blue" Font-Bold="True"></asp:Label>
         </div>
     </div>
 </asp:Content>

@@ -116,7 +116,7 @@
     </div>
     <div class=" row">
         <div class="col-lg-12">
-            <asp:TextBox ID="txtCantPasajeros" runat="server" CssClass="form-control" TextMode="Number" Width="200" Visible="false" placeholder="Cantidad de pasajeros" ></asp:TextBox>
+            <asp:TextBox ID="txtCantPasajeros" runat="server" CssClass="form-control" TextMode="Number" Width="200" Visible="false" placeholder="Cantidad de pasajeros"></asp:TextBox>
         </div>
     </div>
     <div class=" row">
@@ -183,13 +183,13 @@
     <br />
     <div class=" row">
         <div class="col-lg-12">
-            <asp:GridView ID="gvVehiculos" runat="server" Width="80%" BorderWidth="2px" CellSpacing="9"
+            <asp:GridView ID="gvVehiculos" runat="server" Width="80%" BorderWidth="2px" CellSpacing="9" 
                 OnRowCancelingEdit="gvVehiculos_RowCancelingEdit"
                 OnRowDeleting="gvVehiculos_RowDeleting"
                 OnRowEditing="gvVehiculos_RowEditing"
                 OnRowUpdating="gvVehiculos_RowUpdating"
                 AutoGenerateColumns="false"
-                DataKeyNames="Matricula">
+                DataKeyNames="Matricula"  CssClass="table table-bordered table-condensed table-responsive table-hover">
                 <Columns>
                     <asp:TemplateField HeaderText="Matricula">
                         <ItemTemplate>
@@ -271,7 +271,7 @@
 
                     <asp:TemplateField HeaderText="ImagenUno">
                         <ItemTemplate>
-                            <asp:Image ID="lbl11" runat="server" ImageUrl='<%# Bind("ImagenUno") %>' Width="200"></asp:Image>
+                            <asp:Image ID="lbl11" runat="server" ImageUrl='<%# Bind("ImagenUno") %>' Width="180"></asp:Image>
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:TextBox ID="txtImagenUnoGrid" runat="server" Text='<%# Bind("ImagenUno") %>'></asp:TextBox>
@@ -281,7 +281,7 @@
 
                     <asp:TemplateField HeaderText="ImagenDos">
                         <ItemTemplate>
-                            <asp:Image ID="lb12" runat="server" ImageUrl='<%# Bind("ImagenDos") %>' Width="200"></asp:Image>
+                            <asp:Image ID="lb12" runat="server" ImageUrl='<%# Bind("ImagenDos") %>' Width="180"></asp:Image>
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:TextBox ID="txtImagenDosGrid" runat="server" Text='<%# Bind("ImagenDos") %>'></asp:TextBox>
@@ -291,12 +291,18 @@
 
                     <asp:TemplateField HeaderText="ImagenTres">
                         <ItemTemplate>
-                            <asp:Image ID="lbl13" runat="server" ImageUrl='<%# Bind("ImagenTres") %>' Width="200"></asp:Image>
+                            <asp:Image ID="lbl13" runat="server" ImageUrl='<%# Bind("ImagenTres") %>' Width="180"></asp:Image>
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:TextBox ID="txtImagenTresGrid" runat="server" Text='<%# Bind("ImagenTres") %>'></asp:TextBox>
                             <asp:RequiredFieldValidator ControlToValidate="txtImagenUnoGrid" runat="server" Text="Debe ingresar una imagen" ValidationGroup="btnGuardar" ErrorMessage="Debe ingresar una imagen" TextMode="Url"></asp:RequiredFieldValidator>
                         </EditItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Activo">
+                        <ItemTemplate>
+                            <asp:Label ID="lbl14" runat="server" Text='<%# Bind("Activo") %>' ></asp:Label>
+                        </ItemTemplate>                        
                     </asp:TemplateField>
 
 

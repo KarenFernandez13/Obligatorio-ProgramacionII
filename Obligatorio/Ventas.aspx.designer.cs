@@ -69,6 +69,15 @@ namespace Obligatorio
         protected global::System.Web.UI.WebControls.DropDownList cboVehiculos;
 
         /// <summary>
+        /// Control imgVehiculo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage imgVehiculo;
+
+        /// <summary>
         /// Control lblSimbolo.
         /// </summary>
         /// <remarks>
@@ -87,6 +96,42 @@ namespace Obligatorio
         protected global::System.Web.UI.WebControls.Label lblPrecio;
 
         /// <summary>
+        /// Control txtNuevoPrecio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNuevoPrecio;
+
+        /// <summary>
+        /// Control btnCambioPrecio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCambioPrecio;
+
+        /// <summary>
+        /// Control lblSimbolo1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSimbolo1;
+
+        /// <summary>
+        /// Control lblPrecioFinal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPrecioFinal;
+
+        /// <summary>
         /// Control cboVendedores.
         /// </summary>
         /// <remarks>
@@ -94,15 +139,6 @@ namespace Obligatorio
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cboVendedores;
-
-        /// <summary>
-        /// Control lblNombre.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombre;
 
         /// <summary>
         /// Control btnVender.

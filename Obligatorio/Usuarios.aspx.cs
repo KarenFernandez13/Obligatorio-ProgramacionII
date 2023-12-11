@@ -81,47 +81,55 @@ namespace Obligatorio
         }
 
         protected void rblTipoUsuario_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string valorSeleccionado = rblTipoUsuario.SelectedValue;
+        {            
+            lblMessage.Visible = false;
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            CIValidator validator = new CIValidator();
-            bool UsuarioValido = false;
-            Usuario usuario = new Usuario();
-            usuario.Tipo = rblTipoUsuario.SelectedValue;
-            string Documento = txtDocumento.Text;
-            UsuarioValido = validator.Validate(Documento);
-            if (UsuarioValido == false)
+            if(txtDocumento.Text == "0")
             {
                 lblMessage.Text = "El documento no es correcto";
                 lblMessage.Visible = true;
             }
             else
             {
-                UsuarioValido = ValidarUsuario(Documento);
-                if (UsuarioValido == true)
+                CIValidator validator = new CIValidator();
+                bool UsuarioValido = false;               
+                string Documento = txtDocumento.Text;
+                UsuarioValido = validator.Validate(Documento);
+                if (UsuarioValido == false)
                 {
+                    lblMessage.Text = "El documento no es correcto";
                     lblMessage.Visible = true;
                 }
                 else
                 {
-                    usuario.Documento = Documento;
-                    usuario.Nombre = txtNombre.Text;
-                    usuario.Apellido = txtApellido.Text;
-                    usuario.Contraseña = txtContraseña.Text;
-                    BaseDeDatos.ListaUsuarios.Add(usuario);
-                    lblMessage.Text = "Usuario agregado correctamente";
-                    lblMessage.Visible = true;
-                    txtDocumento.Text = String.Empty;
-                    txtNombre.Text = String.Empty;
-                    txtApellido.Text = String.Empty;
-                    this.gvUsuarios.DataSource = BaseDeDatos.ListaUsuarios;
-                    this.gvUsuarios.DataBind();
+                    UsuarioValido = ValidarUsuario(Documento);
+                    if (UsuarioValido == true)
+                    {
+                        lblMessage.Visible = true;
+                    }
+                    else
+                    {
+                        Usuario usuario = new Usuario();
+                        usuario.Tipo = rblTipoUsuario.SelectedValue;
+                        usuario.Documento = Documento;
+                        usuario.Nombre = txtNombre.Text;
+                        usuario.Apellido = txtApellido.Text;
+                        usuario.Contraseña = txtContraseña.Text;
+                        BaseDeDatos.ListaUsuarios.Add(usuario);
+                        lblMessage.Text = "Usuario agregado correctamente";
+                        lblMessage.Visible = true;                        
+                        this.gvUsuarios.DataSource = BaseDeDatos.ListaUsuarios;
+                        this.gvUsuarios.DataBind();
+                        txtDocumento.Text = String.Empty;
+                        txtNombre.Text = String.Empty;
+                        txtApellido.Text = String.Empty;
+                        txtContraseña.Text = String.Empty;
+                    }
                 }
-            }
-           
+            }           
         } 
         
         protected bool ValidarUsuario(string documento)

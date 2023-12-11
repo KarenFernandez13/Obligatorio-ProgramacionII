@@ -36,6 +36,18 @@
         </div>
     </div>
     <br />
+        <div class=" row">
+        <div class="col-lg-12">                     
+            <asp:Label ID="lblCedula" runat="server" Text="(*) Cédula sin puntos ni guiones." CssClass="align-self-center" Font-Italic="true" Font-Size="Small"></asp:Label>
+            <br />
+            <asp:TextBox ID="txtDocumento" runat="server" TextMode="Number" CssClass="form-control" placeholder="Documento"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvDocumento" runat="server"
+                ControlToValidate="txtDocumento"
+                ErrorMessage="El campo Documento es obligatorio."
+                Display="Dynamic">
+            </asp:RequiredFieldValidator>
+        </div>
+    </div>
     <div class=" row">
         <div class="col-lg-12">
             <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" placeholder="Nombre"></asp:TextBox>
@@ -56,16 +68,7 @@
             </asp:RequiredFieldValidator>
         </div>
     </div>
-    <div class=" row">
-        <div class="col-lg-12">
-            <asp:TextBox ID="txtDocumento" runat="server" TextMode="Number" CssClass="form-control" placeholder="Documento"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="rfvDocumento" runat="server"
-                ControlToValidate="txtDocumento"
-                ErrorMessage="El campo Documento es obligatorio."
-                Display="Dynamic">
-            </asp:RequiredFieldValidator>
-        </div>
-    </div>
+
     <div class=" row">
         <div class="col-lg-12">
             <asp:TextBox ID="txtContraseña" TextMode="Password" runat="server" CssClass="form-control" placeholder="Contraseña"></asp:TextBox>
@@ -98,7 +101,7 @@
                 OnRowEditing="gvUsuarios_RowEditing"
                 OnRowUpdating="gvUsuarios_RowUpdating"
                 AutoGenerateColumns="false"
-                DataKeyNames="Documento">
+                DataKeyNames="Documento"  CssClass="table table-bordered table-condensed table-responsive table-hover">
                 <Columns>
                     <asp:TemplateField HeaderText="Documento">
                         <ItemTemplate>

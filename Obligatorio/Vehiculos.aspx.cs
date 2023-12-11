@@ -116,7 +116,7 @@ namespace Obligatorio
                     moto.Kilometros = TextKm.Text;
                     moto.PrecioVenta = TextPrecioVenta.Text;
                     moto.PrecioAlquiler = TextPrecioAlquiler.Text;
-                    moto.CampoEspecial = "Cilindradas:" + txtCilindrada.Text;
+                    moto.CampoEspecial = "Cilindrada:" + txtCilindrada.Text;
                     moto.Activo = true;
                     moto.ImagenUno = txtImagenUno.Text;
                     moto.ImagenDos = txtImagenDos.Text;
@@ -159,13 +159,30 @@ namespace Obligatorio
                     camion.ImagenTres = txtImagenTres.Text;
                     BaseDeDatos.ListaVehiculos.Add(camion);
                 }
+                lblMessage.Text = "Vehículo agregado al stock";
+                lblMessage.Visible = true;
                 this.gvVehiculos.DataSource = BaseDeDatos.ListaVehiculos;
                 this.gvVehiculos.DataBind();
+                txtMatricula.Text = String.Empty;
+                TxtMarca.Text = String.Empty;
+                TxtModelo.Text = String.Empty;
+                TxtAño.Text = String.Empty;
+                TextColor.Text = String.Empty;
+                TextKm.Text = String.Empty;
+                TextPrecioVenta.Text = String.Empty;
+                TextPrecioAlquiler.Text = String.Empty;
+                txtCantPasajeros.Text = String.Empty;
+                txtCilindrada.Text = String.Empty;
+                txtToneladas.Text = String.Empty;
+                txtImagenUno.Text= String.Empty;
+                txtImagenDos.Text = String.Empty;
+                txtImagenTres.Text = String.Empty;
             }
         }
 
         protected void rblTipoVehiculo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lblMessage.Visible = false;
             if (rblTipoVehiculo.SelectedItem.Value == "Moto")
             {
                 txtCilindrada.Visible = true;

@@ -14,6 +14,8 @@
             align-items: center;
             justify-content: center;
         }
+
+       
     </style>
     <br />
     <div class="row">
@@ -24,7 +26,19 @@
     <br />
     <div class=" row">
         <div class="col-lg-12">
-            <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" width="200" placeholder="Nombre"></asp:TextBox>
+            <asp:Label ID="lblCedula" runat="server" Text="(*) Cédula sin puntos ni guiones." CssClass="align-self-center" Font-Italic="true" Font-Size="Small"></asp:Label>
+            <br />
+            <asp:TextBox ID="txtDocumento" runat="server" CssClass="form-control" Width="200" placeholder="Documento"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvDocumento" runat="server"
+                ControlToValidate="txtDocumento"
+                ErrorMessage="El campo Documento es obligatorio."
+                Display="Dynamic">
+         </asp:RequiredFieldValidator>
+        </div>
+    </div>
+    <div class=" row">
+        <div class="col-lg-12">
+            <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" Width="200" placeholder="Nombre"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfvNombre" runat="server"
                 ControlToValidate="txtNombre"
                 ErrorMessage="El campo Nombre es obligatorio."
@@ -34,7 +48,7 @@
     </div>
     <div class=" row">
         <div class="col-lg-12">
-            <asp:TextBox ID="txtApellido" runat="server" CssClass="form-control" width="200" placeholder="Apellido"></asp:TextBox>
+            <asp:TextBox ID="txtApellido" runat="server" CssClass="form-control" Width="200" placeholder="Apellido"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfvApellido" runat="server"
                 ControlToValidate="txtApellido"
                 ErrorMessage="El campo Apellido es obligatorio."
@@ -42,19 +56,10 @@
             </asp:RequiredFieldValidator>
         </div>
     </div>
+
     <div class=" row">
         <div class="col-lg-12">
-            <asp:TextBox ID="txtDocumento" runat="server" CssClass="form-control" width="200" placeholder="Documento"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="rfvDocumento" runat="server"
-                ControlToValidate="txtDocumento"
-                ErrorMessage="El campo Documento es obligatorio."
-                Display="Dynamic">
-            </asp:RequiredFieldValidator>
-        </div>
-    </div>
-    <div class=" row">
-        <div class="col-lg-12">
-            <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control" width="200" placeholder="Teléfono"></asp:TextBox>
+            <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control" Width="200" placeholder="Teléfono"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfvTelefono" runat="server"
                 ControlToValidate="txtTelefono"
                 ErrorMessage="El campo Teléfono es obligatorio."
@@ -64,7 +69,7 @@
     </div>
     <div class=" row">
         <div class="col-lg-12">
-            <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control" width="200" placeholder="Dirección"></asp:TextBox>
+            <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control" Width="200" placeholder="Dirección"></asp:TextBox>
             <asp:RequiredFieldValidator ID="rfvDireccion" runat="server"
                 ControlToValidate="txtDireccion"
                 ErrorMessage="El campo Dirección es obligatorio."
@@ -92,7 +97,8 @@
                 OnRowEditing="gvClientes_RowEditing"
                 OnRowUpdating="gvClientes_RowUpdating"
                 AutoGenerateColumns="false"
-                DataKeyNames="Documento">
+                DataKeyNames="Documento"
+                CssClass="table table-bordered table-condensed table-responsive table-hover">
                 <Columns>
                     <asp:TemplateField HeaderText="Documento">
                         <ItemTemplate>
@@ -140,7 +146,7 @@
                     </asp:TemplateField>
 
 
-                    <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true"  CausesValidation="false"/>
+                    <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true" CausesValidation="false" />
                 </Columns>
 
             </asp:GridView>

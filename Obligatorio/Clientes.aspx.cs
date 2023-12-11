@@ -80,47 +80,63 @@ namespace Obligatorio
         
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            CIValidator CiValidator = new CIValidator();
-            string cedula = txtDocumento.Text;
-            bool ciValida = false;
-            ciValida = CiValidator.Validate(cedula);
-            if (ciValida == false) 
+            if (txtDocumento.Text == "0")
             {
                 lblMessage.Text = "El documento no es correcto";
-                lblMessage.Visible = true;                
             }
             else
             {
-                bool existeCliente = false;
-                foreach (var cli in BaseDeDatos.ListaClientes)
+                if (int.TryParse(txtDocumento.Text, out int docu))
                 {
-                    if(cli.Documento == cedula)
+                    CIValidator CiValidator = new CIValidator();
+                    string cedula = txtDocumento.Text;
+                    bool ciValida = false;
+                    ciValida = CiValidator.Validate(cedula);
+                    if (ciValida == false)
                     {
-                        lblMessage.Text = "Ya existe un cliente con ese documento. Ingrese otro";
-                        existeCliente=true;
-                        break;
+                        lblMessage.Text = "El documento no es correcto";
+                        lblMessage.Visible = true;
+                    }
+                    else
+                    {
+                        bool existeCliente = false;
+                        foreach (var cli in BaseDeDatos.ListaClientes)
+                        {
+                            if (cli.Documento == cedula)
+                            {
+                                lblMessage.Text = "Ya existe un cliente con ese documento. Ingrese otro";
+                                existeCliente = true;
+                                break;
+                            }
+                        }
+                        if (existeCliente == false)
+                        {
+                            Cliente cliente = new Cliente();
+                            cliente.Documento = cedula;
+                            cliente.Nombre = txtNombre.Text;
+                            cliente.Apellido = txtApellido.Text;
+                            cliente.Telefono = txtTelefono.Text;
+                            cliente.Direccion = txtDireccion.Text;
+                            BaseDeDatos.ListaClientes.Add(cliente);
+                            lblMessage.Text = "Cliente ingresado correctamente";
+                            lblMessage.Visible = true;
+                            this.gvClientes.DataSource = BaseDeDatos.ListaClientes;
+                            this.gvClientes.DataBind();
+                            txtDocumento.Text = String.Empty;
+                            txtNombre.Text = String.Empty;
+                            txtApellido.Text = String.Empty;
+                            txtDireccion.Text= String.Empty;
+                            txtTelefono.Text = String.Empty;
+                            
+                        }
                     }
                 }
-                if(existeCliente == false) 
+                else
                 {
-                    Cliente cliente = new Cliente();
-                    cliente.Documento = cedula;
-                    cliente.Nombre = txtNombre.Text;
-                    cliente.Apellido = txtApellido.Text;
-                    cliente.Telefono = txtTelefono.Text;
-                    cliente.Direccion = txtDireccion.Text;
-                    BaseDeDatos.ListaClientes.Add(cliente);
-                    lblMessage.Text = "Cliente ingresado correctamente";
-                    lblMessage.Visible = true;
-                    this.gvClientes.DataSource = BaseDeDatos.ListaClientes;
-                    this.gvClientes.DataBind();
-                }
-                
-            }         
-                       
+                    lblMessage.Text = "El documento no es correcto";
+                }                    
+            }               
         }
-
-       
     }
 
 

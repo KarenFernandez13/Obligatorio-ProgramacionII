@@ -33,17 +33,33 @@ namespace Obligatorio
                    
                 cboVendedores.DataSource = BaseDeDatos.ListaUsuarios;
                 cboVendedores.DataTextField = "NombreApellido";
+                cboVendedores.DataValueField = "Documento";
                 cboVendedores.DataBind();
 
-                string Matricula = cboVehiculos.SelectedItem.Value;
-
-                foreach (var vehiculo in BaseDeDatos.VehiculosActivos())
+                
+                if (cboVehiculos.Items.Count > 0)
+                    
                 {
-                    if (vehiculo.Matricula == Matricula)
+                    string Matricula = cboVehiculos.SelectedItem.Value;
+
+                    foreach (var vehiculo in BaseDeDatos.VehiculosActivos())
                     {
-                        lblPrecio.Text = vehiculo.PrecioVenta;
-                        lblPrecio.Visible = true;
+                        if (vehiculo.Matricula == Matricula)
+                        {
+                            lblPrecio.Text = vehiculo.PrecioVenta;
+                            lblPrecio.Visible = true;
+                            lblPrecioFinal.Text = vehiculo.PrecioVenta;
+                            lblPrecioFinal.Visible = true;
+                            imgVehiculo.Src = vehiculo.ImagenUno;
+                            imgVehiculo.Visible = true;
+                        }
                     }
+                } else
+                {
+                    lblSimbolo.Visible = false;
+                    lblPrecio.Text = "No tenemos vehículos disponibles.";
+                    lblPrecio.Visible = true;
+                    imgVehiculo.Visible = false;
                 }
             }
         }
@@ -52,6 +68,7 @@ namespace Obligatorio
         {
             lblMessage.Text = String.Empty;
         }
+       
         protected void cboVehiculos_SelectedIndexChanged(object sender, EventArgs e)
         {
             string Matricula = cboVehiculos.SelectedItem.Value;
@@ -61,10 +78,19 @@ namespace Obligatorio
                 if (vehiculo.Matricula == Matricula)
                 {
                     lblPrecio.Text = vehiculo.PrecioVenta;
-                    lblPrecio.Visible = true;                    
+                    lblPrecio.Visible = true;
+                    imgVehiculo.Src = vehiculo.ImagenUno;
+                    imgVehiculo.Visible = true;
                 }
             }
         }
+
+        protected void btnCambioPrecio_Click(object sender, EventArgs e)
+        {
+            lblPrecioFinal.Text = txtNuevoPrecio.Text;
+            lblPrecioFinal.Visible = true;
+        }
+
         protected void btnVender_Click(object sender, EventArgs e)
         {
             if (lstClientes.SelectedIndex == -1)
@@ -73,25 +99,15 @@ namespace Obligatorio
             }
             else
             {
-                string Matricula = cboVehiculos.SelectedValue;
-                DateTime fechaVenta = DateTime.Now;
                 int precio;
-                Int32.TryParse(lblPrecio.Text, out precio);
+                Int32.TryParse(lblPrecioFinal.Text, out precio);
+                string Matricula = cboVehiculos.SelectedValue;             
+                                               
                 Venta nuevaVenta = new Venta();
-                nuevaVenta.SetFechaVenta(fechaVenta);
+                nuevaVenta.SetFechaVenta(DateTime.Now);
                 nuevaVenta.SetDocumentoCliente(lstClientes.Text);
-                nuevaVenta.SetMatricula(cboVehiculos.Text);
-                string documentoVendedor = "";
-
-                foreach (var usuario in BaseDeDatos.ListaUsuarios)
-                {
-                    if (usuario.Documento == cboVendedores.SelectedItem.Value)
-                    {
-                        documentoVendedor = usuario.Documento;
-                    }
-                }
-
-                nuevaVenta.SetDocumentoEmpleado(documentoVendedor);
+                nuevaVenta.SetMatricula(cboVehiculos.Text);             
+                nuevaVenta.SetDocumentoEmpleado(cboVendedores.Text);
                 nuevaVenta.SetPrecio(precio);
                 BaseDeDatos.ListaVentas.Add(nuevaVenta);
 
@@ -110,13 +126,31 @@ namespace Obligatorio
                 cboVehiculos.DataTextField = "MarcaModelo";
                 cboVehiculos.DataBind();
                 txtBuscar.Text = String.Empty;
-                lstClientes.SelectedIndex = -1;
+                lstClientes.SelectedIndex = -1;                               
 
                 if (BaseDeDatos.VehiculosActivos().Count == 0)
                 {
                     lblSimbolo.Visible = false;
                     lblPrecio.Text = "No tenemos vehículos disponibles.";
                     lblPrecio.Visible = true;
+                    imgVehiculo.Visible=false;
+                }
+                else
+                {
+                    Matricula = cboVehiculos.SelectedItem.Value;
+
+                    foreach (var vehiculo in BaseDeDatos.VehiculosActivos())
+                    {
+                        if (vehiculo.Matricula == Matricula)
+                        {
+                            lblPrecio.Text = vehiculo.PrecioVenta;
+                            lblPrecio.Visible = true;
+                            lblPrecioFinal.Text = vehiculo.PrecioVenta;
+                            lblPrecioFinal.Visible = true;
+                            imgVehiculo.Src = vehiculo.ImagenUno;
+                            imgVehiculo.Visible = true;
+                        }
+                    }
                 }
                 lblMessage.Text = ("Venta realizada exitosamente!");
             }
@@ -140,5 +174,7 @@ namespace Obligatorio
                 lstClientes.SelectedIndex = -1;                
             }
         }
+
+        
     }
 }
